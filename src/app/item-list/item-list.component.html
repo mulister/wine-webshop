@@ -4,7 +4,9 @@
         <div class="card">
           <img [src]="wine.image" class="card-img-top img-fluid" alt="Wine Image">
           <div class="card-body">
-            <h3 class="card-title"><b>{{ wine.name }}</b></h3>
+            <a (click)="openWhineDetailScreen(wine)">
+              <h3 class="card-title"><b>{{ wine.name }}</b></h3>
+            </a>
             <p class="card-text">Price: ${{ wine.price }}</p>
             <!-- Add other details here -->
           </div>

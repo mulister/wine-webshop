@@ -10,7 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GalleryComponent } from '@daelmaak/ngx-gallery';
 import { InfographicComponent } from './infographic/infographic.component';
 import { ItemListComponent } from './item-list/item-list.component';
-import { ItemDetailComponentComponent } from './item-detail-component/item-detail-component.component';
+import { ItemDetailComponent } from './item-detail-component/item-detail.component';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -21,15 +22,18 @@ import { ItemDetailComponentComponent } from './item-detail-component/item-detai
     ImgGalleryComponent,
     InfographicComponent,
     ItemListComponent,
-    ItemDetailComponentComponent
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     GalleryComponent,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    { provide: MAT_DIALOG_DATA, useValue: {}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Wine } from '../shared/wine.model';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ItemDetailComponent } from '../item-detail-component/item-detail.component';
 
 @Component({
   selector: 'app-item-list',
@@ -9,15 +11,31 @@ import { Wine } from '../shared/wine.model';
 export class ItemListComponent implements OnInit {
   items: Wine[] = [];
 
+  constructor(private dialog: MatDialog){
+
+  }
+
   ngOnInit() {
     for (let i = 0; i < 50; i++) {
       const wine: Wine = {
-        name: "Wine1",
+        id: i,
+        name: "Wine" + i,
         description: "Some description", // Add description and other properties
         price: 19.99,
         image: 'assets/images/Wine bottle.png'
       };
       this.items.push(wine)
     }
+  }
+
+  openWhineDetailScreen(wine: Wine)
+  {
+    const dialogRef = this.dialog.open(ItemDetailComponent, {
+      height: '400px',
+      width: '600px',
+      data: {
+        "wine": wine
+      }
+    });
   }
 }
