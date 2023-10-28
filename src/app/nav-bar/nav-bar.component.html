@@ -39,8 +39,9 @@
 <nav class="navbar custom-navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0"
   [ngClass]="{'navbar-scrolled': scrolled, 'navbar-not-scrolled': !scrolled}">
   <div class="container">
-    <a class="navbar-brand" href="#!"><span style="color: #1a1b1b;">Georgian</span><span
-        style="color: #1f4652;">Finest</span></a>
+    <a class="navbar-brand" href="#!" [ngClass]="{'text-dark': !scrolled, 'text-white': scrolled}">
+      <span >Georgian</span>
+      <span >Finest</span></a>
     <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
@@ -48,41 +49,41 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#!">Offer</a>
+          <a [ngClass]="{'text-dark': !scrolled, 'text-white': scrolled}" class="nav-link" href="#!">Offer</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#!">Features</a>
+          <a [ngClass]="{'text-dark': !scrolled, 'text-white': scrolled}" class="nav-link" href="#!">Features</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#!">Portfolio</a>
+          <a [ngClass]="{'text-dark': !scrolled, 'text-white': scrolled}" class="nav-link" href="#!">Portfolio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#!">Reference</a>
+          <a [ngClass]="{'text-dark': !scrolled, 'text-white': scrolled}" class="nav-link" href="#!">Reference</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#!">About</a>
+          <a [ngClass]="{'text-dark': !scrolled, 'text-white': scrolled}" class="nav-link" href="#!">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#!">Team</a>
+          <a [ngClass]="{'text-dark': !scrolled, 'text-white': scrolled}" class="nav-link" href="#!">Team</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#!">Contact</a>
+          <a [ngClass]="{'text-dark': !scrolled, 'text-white': scrolled}" class="nav-link" href="#!">Contact</a>
         </li>
       </ul>
       <ul class="navbar-nav d-flex flex-row">
         <li class="nav-item me-3 me-lg-0">
           <a class="nav-link" href="#!">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <i [ngClass]="{'text-dark': !scrolled, 'text-white': scrolled}" class="fa fa-shopping-cart" aria-hidden="true"></i>
           </a>
         </li>
         <li class="nav-item me-3 me-lg-0">
           <a class="nav-link" href="#!">
-            <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            <i [ngClass]="{'text-dark': !scrolled, 'text-white': scrolled}" class="fa fa-facebook-official" aria-hidden="true"></i>
           </a>
         </li>
         <li class="nav-item me-3 me-lg-0">
           <a class="nav-link" href="#!">
-            <i class="fa fa-instagram" aria-hidden="true"></i>
+            <i [ngClass]="{'text-dark': !scrolled, 'text-white': scrolled}" class="fa fa-instagram" aria-hidden="true"></i>
           </a>
         </li>
       </ul>
