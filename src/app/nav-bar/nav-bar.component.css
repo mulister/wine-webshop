@@ -17,6 +17,15 @@
 
 /* Styles for the navbar when not scrolled */
 .navbar-not-scrolled {
-  background-color: transparent;
+  background-color: white;
   /* Change to your desired transparent background */
+}
+
+.navbar:not(.navbar-scrolled) .navbar-brand.text-dark {
+  color: #000 !important;
+}
+
+/* Text color when scrolled (white) */
+.navbar-scrolled .navbar-brand {
+  color: #fff;
 }
