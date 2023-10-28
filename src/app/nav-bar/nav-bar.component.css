@@ -1,8 +1,22 @@
 .navbar:hover {
-    background-color: lightblue; /* Change to your desired highlight color */
-  }
+  background-color: lightblue;
+  /* Change to your desired highlight color */
+}
 
-  .navbar {
-    transition: background-color 0.5s; /* Add a transition to the background-color property */
-  }
-  
+.navbar {
+  transition: background-color 0.5s;
+  /* Add a transition to the background-color property */
+}
+
+
+/* Styles for the navbar when scrolled */
+.navbar-scrolled {
+  background-color: #333;
+  /* Change to your desired darker color */
+}
+
+/* Styles for the navbar when not scrolled */
+.navbar-not-scrolled {
+  background-color: transparent;
+  /* Change to your desired transparent background */
+}

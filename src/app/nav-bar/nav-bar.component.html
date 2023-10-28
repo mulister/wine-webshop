@@ -36,7 +36,8 @@
     </div>
   </nav> -->
 
-<nav class="navbar custom-navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+<nav class="navbar custom-navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0"
+  [ngClass]="{'navbar-scrolled': scrolled, 'navbar-not-scrolled': !scrolled}">
   <div class="container">
     <a class="navbar-brand" href="#!"><span style="color: #1a1b1b;">Georgian</span><span
         style="color: #1f4652;">Finest</span></a>
