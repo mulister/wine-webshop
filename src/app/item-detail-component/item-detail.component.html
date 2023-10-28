@@ -1,13 +1,11 @@
-<p>item-detail-component works!</p>
-
-<div>
-    <div >
-        {{ selectedWine.name }}
+<div class="page">
+    <div class="header">
+        <h1>{{ selectedWine.name }}</h1>
     </div>
 
     <div class="collumns">
         <div class="collumn">
-            {{ selectedWine.image }}
+            <img [src]="selectedWine.image" class="card-img-top img-fluid" alt="Wine Image">
         </div>
         <div class="collumn">
             <div class="section">
@@ -16,6 +14,12 @@
            <div class="section">
                  {{ selectedWine.description }}
             </div>
+
+            <div class="button bottomRight">
+                <button class="btn btn-secondary">Add to cart</button>
+            </div>
         </div>
     </div>
+
+    
 </div>
