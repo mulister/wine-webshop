@@ -8,14 +8,17 @@ import { Wine } from '../shared/wine.model';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit  {
+  public selectedWine!: Wine;
   constructor(
     public dialogRef: MatDialogRef<ItemDetailComponent>,
-    @Inject(MAT_DIALOG_DATA) public wine: Wine
+    @Inject(MAT_DIALOG_DATA) private wine: Wine
   ) { 
-
+    
   }
 
   ngOnInit(): void {
     console.log('wine object:', this.wine);
+    this.selectedWine = this.wine;
+    console.log('wine object:', this.selectedWine);
   }
 }
