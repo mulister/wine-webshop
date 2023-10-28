@@ -33,9 +33,7 @@ export class ItemListComponent implements OnInit {
     const dialogRef = this.dialog.open(ItemDetailComponent, {
       height: '400px',
       width: '600px',
-      data: {
-        "wine": wine
-      }
+      data: wine
     });
   }
 }

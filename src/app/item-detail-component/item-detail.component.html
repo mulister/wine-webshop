@@ -1,11 +1,21 @@
 <p>item-detail-component works!</p>
 
 <div>
-    <div class="header">
-        {{ wine.name }}
+    <div >
+        {{ selectedWine.name }}
     </div>
 
     <div class="collumns">
-        details
+        <div class="collumn">
+            {{ selectedWine.description }}
+        </div>
+        <div class="collumn">
+            <div class="section">
+                    {{ selectedWine.description }}
+            </div>
+           <div class="section">
+                 {{ selectedWine.description }}
+            </div>
+        </div>
     </div>
 </div>
