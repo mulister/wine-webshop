@@ -10,8 +10,8 @@
                     <div class="col-md-6">
                         <div class="card-body d-flex flex-column">
                             <h3 class="card-title" (click)="openWhineDetailScreen(wine)"><b>{{ wine.name }}</b></h3>
-                            <p class="card-text">Price: ${{ wine.price }}</p>
-                            <p class="card-text">Price: ${{ wine.smallDescription }}</p>
+                            <p class="card-text">Price: €{{ wine.price }}</p>
+                            <p class="card-text">Info: {{ wine.smallDescription }}</p>
                             <div class="mt-auto">
                                 <button class="btn btn-secondary">Add to cart</button>
                             </div>
