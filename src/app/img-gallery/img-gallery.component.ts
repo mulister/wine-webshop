@@ -10,9 +10,9 @@ import { GalleryItem } from '../shared/gallery-item.model';
 export class ImgGalleryComponent {
   items: GalleryItem[] = [
     {
-      src: 'https://cdn.pixabay.com/photo/2020/06/23/15/17/avocado-5332878_960_720.jpg',
+      src: 'src\app\img-gallery\img-gallery.component.css',
       thumbSrc:
-        'https://cdn.pixabay.com/photo/2020/06/23/15/17/avocado-5332878_960_720.jpg',
+        'src\app\img-gallery\img-gallery.component.css',
     },
     {
       src: 'https://cdn.pixabay.com/photo/2017/01/12/02/34/coffee-1973549_960_720.jpg',
