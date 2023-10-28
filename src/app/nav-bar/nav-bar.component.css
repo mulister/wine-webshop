@@ -1,0 +1,8 @@
+.navbar:hover {
+    background-color: lightblue; /* Change to your desired highlight color */
+  }
+
+  .navbar {
+    transition: background-color 0.5s; /* Add a transition to the background-color property */
+  }
+  
