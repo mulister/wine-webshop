@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "8KOPZKSF4LCL5+JQLAm9tyEAaWWbDlNJPogMO8w+UpU=",
+  "Source": "Webshop.Api",
+  "BasePath": "_content/Webshop.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

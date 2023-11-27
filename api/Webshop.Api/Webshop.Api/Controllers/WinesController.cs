@@ -12,12 +12,12 @@ namespace Website.Controllers
   [ApiController]
   [Produces("application/json")]
   [Route("api/wines")]
-  public class RegionsController : Controller
+  public class WinesController : Controller
   {
-    WebshopContext _webshopContext;
+    private readonly WebshopContext _webshopContext;
     WineService _wineService;
 
-    public RegionsController(WebshopContext webshopContext, WineService wineService)
+    public WinesController(WebshopContext webshopContext, WineService wineService)
     {
       _webshopContext = webshopContext;
       _wineService = wineService;
