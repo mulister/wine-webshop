@@ -1,26 +1,48 @@
-<div class="page">
-    <div class="header">
-        <h1>{{ selectedWine.name }}</h1>
-    </div>
-
-    <div class="collumns">
-        <div class="collumn">
-            <img [src]="selectedWine.image" class="card-img-top img-fluid" alt="Wine Image">
+<div class="product-card">
+    <div class="product" style="overflow: visible;">
+        <div class="product-photo">
+            <div class="photo-container">
+                <div class="photo-main">
+                    <div class="controls">
+                        <i class="material-icons">share</i>
+                        <i class="material-icons">favorite_border</i>
+                    </div>
+                    <img [src]="selectedWine.image" class="img-main" alt="Wine Image">
+                </div>
+                <div class="photo-album">
+                    <ul class="list-icons">
+                        <li class="selection-icon"><img [src]="selectedWine.image" class="card-img-top img-fluid" alt="Wine Image"></li>
+                        <li class="selection-icon"><img [src]="selectedWine.image" class="card-img-top img-fluid" alt="Wine Image"></li>
+                        <li class="selection-icon"><img [src]="selectedWine.image" class="card-img-top img-fluid" alt="Wine Image"></li>
+                        <li class="selection-icon"><img [src]="selectedWine.image" class="card-img-top img-fluid" alt="Wine Image"></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="collumn">
-            <div class="section">
-                    {{ selectedWine.price }}
+        <div>
+            <div class="title">
+                <h1>{{ selectedWine.name }}</h1>
+                <span>COD: 45999</span>
             </div>
-           <div class="section">
-                 {{ selectedWine.description }}
+            <div class="price">
+                € <span>{{ selectedWine.price }}</span>
             </div>
-
-            <div class="button bottomRight">
-                <input type="number" min="0" max="99">
-                <button class="btn btn-secondary">Add to cart</button>
+            <div class="variant">
+                <h3>SELECT A COLOR</h3>
+                <ul class="list-icons">
+                    <li class="selection-icon"><img [src]="selectedWine.image" class="card-img-top img-fluid" alt="Wine Image"></li>
+                    <li class="selection-icon"><img [src]="selectedWine.image" class="card-img-top img-fluid" alt="Wine Image"></li>
+                    <li class="selection-icon"><img [src]="selectedWine.image" class="card-img-top img-fluid" alt="Wine Image"></li>
+                    <li class="selection-icon"><img [src]="selectedWine.image" class="card-img-top img-fluid" alt="Wine Image"></li>
+                </ul>
             </div>
+            <div class="description">
+                <h3>DESCRIPTION</h3>
+                <ul>
+                    <li>{{ selectedWine.description }}</li>
+                </ul>
+            </div>
+            <button class="buy--btn">ADD TO CART</button>
         </div>
     </div>
-
-    
 </div>

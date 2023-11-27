@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Wine } from '../shared/wine.model';
 
@@ -17,8 +17,6 @@ export class ItemDetailComponent implements OnInit  {
   }
 
   ngOnInit(): void {
-    console.log('wine object:', this.wine);
     this.selectedWine = this.wine;
-    console.log('wine object:', this.selectedWine);
   }
 }
