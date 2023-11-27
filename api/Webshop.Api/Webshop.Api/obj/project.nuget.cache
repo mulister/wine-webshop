@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "xLSDkA7w4wL/w4yCrsFBXu7glSzAIRlgncMa7aHYaOn4hM1VSsCgz/vsMFTjZcPuBB3VFlAU9EztWJ0VcnCNKg==",
+  "success": true,
+  "projectFilePath": "C:\\CustomProject\\Webshop 1.0\\wine-webshop\\api\\Webshop.Api\\Webshop.Api\\Webshop.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Eddy\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Eddy\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Eddy\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\Eddy\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\Eddy\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\Eddy\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
