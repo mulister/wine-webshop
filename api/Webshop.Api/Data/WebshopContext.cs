@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-  internal class WebshopContext : DbContext
+  public class WebshopContext : DbContext
   {
-    public DbSet<Wine> LegalForms { get; set; }
-    public DbSet<WineType> ClosureReasons { get; set; }
-    public DbSet<Award> Log { get; set; }
+    public DbSet<Wine> Wines { get; set; }
+    public DbSet<WineType> WineTypes { get; set; }
+    public DbSet<Award> Awards { get; set; }
   }
 }
