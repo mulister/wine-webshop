@@ -25,9 +25,8 @@ namespace Data
     {
       if (!optionsBuilder.IsConfigured)
       {
-        optionsBuilder.UseSqlServer("Server=.;Database=QualityWines;");
+        optionsBuilder.UseSqlServer("Server=.;Database=QualityWines;Integrated Security=True;");
       }
     }
   }
 }
-
