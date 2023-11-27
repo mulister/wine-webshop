@@ -943,6 +943,22 @@
             "rid": "win"
           }
         }
+      },
+      "Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "EntityFramework": "6.4.4",
+          "Microsoft.EntityFrameworkCore": "6.0.25",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.25",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.25"
+        },
+        "compile": {
+          "bin/placeholder/Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Data.dll": {}
+        }
       }
     }
   },
@@ -2765,10 +2781,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Data/1.0.0": {
+      "type": "project",
+      "path": "../Data/Data.csproj",
+      "msbuildProject": "../Data/Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Data >= 1.0.0",
       "EntityFramework >= 6.4.4",
       "Microsoft.EntityFrameworkCore.Relational >= 6.0.25",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.25",
@@ -2801,7 +2823,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\CustomProject\\Webshop 1.0\\wine-webshop\\api\\Webshop.Api\\Data\\Data.csproj": {
+              "projectPath": "C:\\CustomProject\\Webshop 1.0\\wine-webshop\\api\\Webshop.Api\\Data\\Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
