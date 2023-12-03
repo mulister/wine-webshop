@@ -1,5 +1,6 @@
 // Startup.cs
 using Data;
+using Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -21,9 +22,22 @@ namespace Webshop.Api
     public void ConfigureServices(IServiceCollection services)
     {
 
+      services.AddScoped<WineService>();
+
+      services.AddCors(options =>
+      {
+        options.AddDefaultPolicy(builder =>
+        {
+          builder.AllowAnyOrigin()
+                 .AllowAnyMethod()
+                 .AllowAnyHeader();
+        });
+      });
+
       // Other service configurations...
       services.AddDbContext<WebshopContext>(options =>
           options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
 
       // Register the Swagger generator, defining one or more Swagger documents
       services.AddSwaggerGen(c =>
@@ -35,7 +49,7 @@ namespace Webshop.Api
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
       // Other app configurations...
-
+      app.UseCors();
       // Enable middleware to serve generated Swagger as a JSON endpoint.
       app.UseSwagger();
 

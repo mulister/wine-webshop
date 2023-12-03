@@ -12,7 +12,10 @@ import { InfographicComponent } from './infographic/infographic.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemDetailComponent } from './item-detail-component/item-detail.component';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-
+import { CreateWineComponent } from './create-wine/create-wine.component';
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,14 +25,18 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angu
     ImgGalleryComponent,
     InfographicComponent,
     ItemListComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    CreateWineComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     GalleryComponent,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {}}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Create Item</title>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h4>Create Item</h4>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="item.name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="type">Type</label>
+                <input type="text" class="form-control" id="type" [(ngModel)]="item.type" name="type" required>
+              </div>
+              <div class="form-group">
+                <label for="color">Color</label>
+                <input type="text" class="form-control" id="color" [(ngModel)]="item.color" name="color" required>
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" [(ngModel)]="item.description" name="description"
+                  required></textarea>
+              </div>
+              <!-- <div class="form-group">
+                <label for="awards">Awards</label>
+                <input type="text" class="form-control" id="awards" [(ngModel)]="item.awards" name="awards">
+              </div> -->
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" [(ngModel)]="item.price" name="price" required>
+              </div>
+              <div class="form-group">
+                <label for="capacity">Capacity</label>
+                <input type="text" class="form-control" id="capacity" [(ngModel)]="item.capacity" name="capacity" required>
+              </div>
+              <button type="submit" (click)="createWine()" class="btn btn-primary">Create Item</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Bootstrap and Angular scripts here -->
+
+</body>
+
+</html>
