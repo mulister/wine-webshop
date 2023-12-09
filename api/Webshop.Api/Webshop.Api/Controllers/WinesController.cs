@@ -3,6 +3,7 @@ using Data.Objects;
 using Data.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,20 +15,22 @@ namespace Website.Controllers
   [Route("api/wines")]
   public class WinesController : Controller
   {
-    private readonly WebshopContext _webshopContext;
-    WineService _wineService;
+    //private readonly WebshopContext _webshopContext;
+    //wineservice _wineservice;
 
-    public WinesController(WebshopContext webshopContext, WineService wineService)
+    public WinesController(
+      //WebshopContext webshopContext,
+      )
     {
-      _webshopContext = webshopContext;
-      _wineService = wineService;
+      //_webshopContext = webshopContext;
+      //_wineService = wineService;
     }
 
-    [HttpGet]
-    public IActionResult Get()
-    {
-      return Ok(_webshopContext.Wines.ToList());
-    }
+    //[HttpGet]
+    //public IActionResult Get()
+    //{
+    //  return Ok(_webshopContext.Wines.ToList());
+    //}
 
 
     [HttpPost]
@@ -35,7 +38,9 @@ namespace Website.Controllers
     {
       try
       {
-        await _wineService.Create(wine);
+        WebshopContext context = new WebshopContext();
+        WineService wineService = new WineService(context);
+        await wineService.Create(wine);
 
         return Ok();
       }
