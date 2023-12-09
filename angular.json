@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "webshop-test:build:production"
+              "buildTarget": "webshop-test:build:production"
             },
             "development": {
-              "browserTarget": "webshop-test:build:development"
+              "buildTarget": "webshop-test:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "webshop-test:build"
+            "buildTarget": "webshop-test:build"
           }
         },
         "test": {
