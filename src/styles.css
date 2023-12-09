@@ -47,20 +47,23 @@ h3 {
     float: left;
 }
 
-.mat-dialog-container.mat-dialog-class {
-    overflow: visible !important;
+.custom-dialog-backdrop {
+    background-color: transparent !important;
 }
 
-.mat-dialog-class {
-    overflow: visible !important;
-}
-
-.dialog-content {
+.mat-mdc-dialog-surface, .ng-star-inserted, .mdc-dialog__container {
+    background-color: transparent !important;
     height: 100%;
     width: 100%;
-    padding: 1px;
-    background-color: transparent;
-    overflow: visible;
+}
+
+.mat-mdc-dialog-container, .mdc-dialog, .cdk-dialog-container, .mdc-dialog--open {
+    height: 100%;
+    width: 100%;
+}
+
+.cdk-overlay-pane, .custom-modalbox, .cdk-global-overlay-wrapper{
+    max-width: 100%;
 }
 
 .product-card {
@@ -70,8 +73,7 @@ h3 {
     display: grid;
     grid-template-rows: 1fr;
     font-family: "Raleway", sans-serif;
-    background-color: white;
-    overflow: visible;
+    background-color: transparent;
 }
 
 .product {
@@ -80,8 +82,9 @@ h3 {
     margin: auto;
     padding: 2.5em 0;
     min-width: 600px;
-    background-color: transparent;
+    max-width: 750px;
     border-radius: 5px;
+    background-color: white;
 }
 
 .product-photo {

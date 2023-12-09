@@ -4,7 +4,7 @@
         <div *ngFor="let wine of items" class="col-md-4 mt-2 mb-2">
             <div class="card custom-card"> <!-- Add a custom class to the card -->
                 <div class="row">
-                    <div class="col-md-6" (click)="openWhineDetailScreen(wine)">
+                    <!-- <div class="col-md-6" (click)="openWhineDetailScreen(wine)">
                         <img [src]="wine.image" class="card-img-top img-fluid" alt="Wine Image">
                     </div>
                     <div class="col-md-6">
@@ -15,9 +15,12 @@
                             <div class="mt-auto">
                                 <button class="btn btn-secondary">Add to cart</button>
                             </div>
-                            <!-- Add other details here -->
+                             Add other details here
                         </div>
-                    </div>
+                    </div> -->
+                    <item-detail>
+
+                    </item-detail>
                 </div>
             </div>
         </div>

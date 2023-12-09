@@ -32,10 +32,11 @@ export class ItemListComponent implements OnInit {
   openWhineDetailScreen(wine: Wine)
   {
     const dialogRef = this.dialog.open(ItemDetailComponent, {
-      height: '700px',
-      width: '750px',
+      height: '100%',
+      width: '100%',
       data: wine,
-      panelClass: 'mat-dialog-class'
+      panelClass: 'custom-modalbox',
+      backdropClass: 'custom-dialog-backdrop',
     });
   }
 }

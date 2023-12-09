@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { DoBootstrap, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { createCustomElement } from '@angular/elements';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -12,7 +13,6 @@ import { InfographicComponent } from './infographic/infographic.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemDetailComponent } from './item-detail-component/item-detail.component';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-
 
 @NgModule({
   declarations: [
@@ -29,11 +29,24 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef } from '@angu
     AppRoutingModule,
     BrowserAnimationsModule,
     GalleryComponent,
-    MatDialogModule
+    MatDialogModule,
+    ItemDetailComponent
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {}}
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements DoBootstrap { 
+
+  constructor(private injector: Injector) {
+
+  }
+  ngDoBootstrap() {
+    const injectorObj = {
+      injector: this.injector
+    };
+    // Customers
+    customElements.define('customers-angular', createCustomElement(ItemDetailComponent, injectorObj));
+  }
+}
