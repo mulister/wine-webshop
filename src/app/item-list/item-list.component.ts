@@ -26,7 +26,8 @@ export class ItemListComponent implements OnInit {
         image: 'assets/images/Wine bottle.png',
         capacity: '500cl',
         color: 'red',
-        type: 'dry'
+        type: 'dry',
+        awards: []
       };
       this.items.push(wine)
     }

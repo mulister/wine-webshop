@@ -7,6 +7,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Add CORS middleware
+builder.Services.AddCors(options =>
+{
+  options.AddPolicy("AllowAllOrigins",
+   options =>
+   {
+     options.WithOrigins("*").AllowAnyHeader();
+     options.WithMethods("GET", "POST", "PUT", "DELETE");
+   });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -18,6 +29,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
+app.UseCors("AllowAllOrigins");
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

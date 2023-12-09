@@ -24,14 +24,15 @@ export class CreateWineComponent implements OnInit {
       price: 0,
       color: '',
       type: '',
-      image: '' // You may want to provide a default image URL or handle image upload separately
+      image: '', // You may want to provide a default image URL or handle image upload separately,
+      awards: []
     }; 
    }
 
    createWine() : any {
 
     console.log(this.item);
-    this.wineService.createWine(this.item).subscribe(reuslt => {
+    this.wineService.createWine(this.item).subscribe(result => {
       console.log("Success");
     },
     error => {

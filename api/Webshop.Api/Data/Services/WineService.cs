@@ -19,14 +19,21 @@ namespace Data.Services
 
     public async Task Create(Wine wine)
     {
-      if (string.IsNullOrWhiteSpace(wine.Name))
+      try
       {
-        throw new ArgumentNullException("Wine name was not entered. It cannot be empty.");
+        if (string.IsNullOrWhiteSpace(wine.Name))
+        {
+          throw new ArgumentNullException("Wine name was not entered. It cannot be empty.");
+        }
+
+        _webshopContext.Add(wine);
+
+        await _webshopContext.SaveChangesAsync();
       }
+      catch(Exception ex)
+      {
 
-      _webshopContext.Add(wine);
-
-      await _webshopContext.SaveChangesAsync();
+      }
     }
 
     public async Task Delete(int id)

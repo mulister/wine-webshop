@@ -34,7 +34,7 @@ namespace Website.Controllers
 
 
     [HttpPost]
-    public async Task<IActionResult> Create(Wine wine)
+    public async Task<IActionResult> Create([FromBody] Wine wine)
     {
       try
       {

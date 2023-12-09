@@ -9,4 +9,5 @@ export interface Wine {
     type: string;
     // image: Blob;
     image: string;
+    awards : []
   }

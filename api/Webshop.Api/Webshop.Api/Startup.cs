@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-
 namespace Webshop.Api
 {
   public class Startup
@@ -26,11 +25,11 @@ namespace Webshop.Api
 
       services.AddCors(options =>
       {
-        options.AddDefaultPolicy(builder =>
+        options.AddPolicy("Preflight", builder =>
         {
-          builder.AllowAnyOrigin()
-                 .AllowAnyMethod()
-                 .AllowAnyHeader();
+          builder.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
         });
       });
 
@@ -49,7 +48,7 @@ namespace Webshop.Api
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
       // Other app configurations...
-      app.UseCors();
+      app.UseCors("Preflight");
       // Enable middleware to serve generated Swagger as a JSON endpoint.
       app.UseSwagger();
 
