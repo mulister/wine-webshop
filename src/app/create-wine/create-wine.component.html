@@ -22,6 +22,12 @@
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" [(ngModel)]="item.name" name="name" required>
               </div>
+
+              <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" class="form-control" id="image" [(ngModel)]="item.image" name="image">
+              </div>
+
               <div class="form-group">
                 <label for="type">Type</label>
                 <input type="text" class="form-control" id="type" [(ngModel)]="item.type" name="type" required>
