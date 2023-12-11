@@ -3,11 +3,12 @@ body {
   }
 
   .container {
+    background-color: black;
     margin-top: 50px;
   }
 
   .card {
-    color: white;
+    color: black;
     background-color: #272121;
     border: none;
     border-radius: 20px; /* Increase border-radius for more rounded edges */

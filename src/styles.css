@@ -74,7 +74,6 @@ h3 {
 }
 
 .product-card {
-    background-color: #4c4c4c;
     color: white;
     height: 100%;
     width: 100%;
@@ -86,6 +85,7 @@ h3 {
 }
 
 .product {
+    background-color: #4c4c4c !important;
     display: grid;
     grid-template-columns: 0.9fr 1fr;
     margin: auto;
