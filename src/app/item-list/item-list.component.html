@@ -28,11 +28,11 @@
         <div *ngFor="let wine of items" class="col-md-3 mb-2s">
             <div class="card">
                 <div class="image-container">
-                    <img [src]="wine.image" class="img-fluid rounded thumbnail-image">
+                    <img [src]="wine.image" (click)="openWhineDetailScreen(wine)" class="img-fluid rounded thumbnail-image">
                 </div>
                 <div class="product-detail-container p-2">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="dress-name">{{wine.name}}</h5>
+                        <h5 class="dress-name" (click)="openWhineDetailScreen(wine)">{{wine.name}}</h5>
                         <div class="d-flex flex-column mb-2">
                             <span>€{{wine.price}}</span>
                             <!-- <small class="old-price text-right">$5.99</small> -->

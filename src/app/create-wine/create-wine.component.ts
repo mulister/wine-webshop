@@ -31,11 +31,11 @@ export class CreateWineComponent implements OnInit {
    createWine() : any {
 
     console.log(this.item);
-    this.wineService.createWine(this.item).subscribe(reuslt => {
-      console.log("Success");
+     this.wineService.createWine(this.item).subscribe(result => {
+      console.log("Success", result);
     },
     error => {
-      console.log("Error");
+      console.log("Error", error);
     })
    }
 }
