@@ -40,3 +40,11 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/api/Webshop.Api/.vs/Webshop.Api/FileContentIndex
+/api/Webshop.Api/.vs/Webshop.Api/FileContentIndex/740707d6-656b-498c-9aa3-f5b0219ff7c1.vsidx
+/api/Webshop.Api/Data/obj/Debug/net6.0
+/api/Webshop.Api/Data/obj/Debug/net6.0/Data.sourcelink.json
+/api/Webshop.Api/Webshop.Api
+/api/Webshop.Api/Webshop.Api/bin/Debug/net6.0
+/api/Webshop.Api/Webshop.Api/bin/Debug/net6.0/Microsoft.Extensions.Configuration.dll
+/api/Webshop.Api/Webshop.Api/obj/Debug/net6.0
