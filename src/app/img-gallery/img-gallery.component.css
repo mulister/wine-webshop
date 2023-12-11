@@ -1,10 +1,21 @@
-gallery {
+ gallery {
     width: 100%;
   }
-  
-  main {
+
+   main {
     width: 100%;
     box-sizing: border-box;
     padding: 50px;
   }
+
+   /* .thumbnail {
+    float: left;
+    margin: 10px;
+  }
   
+  @media (min-width: 768px) {
+    .thumbnail {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  } */

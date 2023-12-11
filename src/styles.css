@@ -74,6 +74,8 @@ h3 {
 }
 
 .product-card {
+    background-color: #4c4c4c;
+    color: white;
     height: 100%;
     width: 100%;
     padding: 1px;

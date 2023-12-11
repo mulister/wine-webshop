@@ -3,7 +3,7 @@ import { GalleryItem } from '../shared/gallery-item.model';
 
 @Component({
   selector: 'app-img-gallery',
-  templateUrl: './img-gallery.component.html',
+    templateUrl:'./img-gallery.component.html',
   styleUrls: ['./img-gallery.component.css']
 })
 
