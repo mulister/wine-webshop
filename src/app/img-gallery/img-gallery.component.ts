@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GalleryItem } from '../shared/gallery-item.model';
 
 @Component({
@@ -7,7 +7,7 @@ import { GalleryItem } from '../shared/gallery-item.model';
   styleUrls: ['./img-gallery.component.css']
 })
 
-export class ImgGalleryComponent {
+export class ImgGalleryComponent implements OnInit {
   items: GalleryItem[] = [
     // {
     //   src: 'src\app\img-gallery\img-gallery.component.css',
@@ -35,4 +35,18 @@ export class ImgGalleryComponent {
         'https://cdn.pixabay.com/photo/2013/11/15/23/18/john-work-garrett-library-211375_960_720.jpg',
     },
   ];
+
+
+  currentIndex = 0;
+
+  ngOnInit() {
+  }
+
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.items.length;
+  }
+
+  previous() {
+    this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+  }
 }

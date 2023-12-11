@@ -24,6 +24,7 @@ body{
 .card{
 	color: white;
 	background-color: #272121;
+	/* background-color: rgba(39, 33, 33, 0); */
 	border:none;
 	border-radius: 10px;
 	width: 190px;
@@ -40,6 +41,31 @@ body{
 	border-radius: 10px !important;
 }
 
+/* .card.wine-card {
+    margin-bottom: 20px;
+} */
+
+.card.wine-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-bottom: 20px !important;
+}
+
+.image-section {
+    background-color: rgba(50, 50, 50, 0.773) !important;; /* Background color for the image section */
+}
+
+.text-section {
+    background-color:gray !important;;  /* Background color for the text section */
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #000; /* Border between image and text sections */
+}
+
 
 .discount{
 
@@ -52,6 +78,15 @@ body{
 	border-radius: 6px;
 	color: #fff;
 }
+
+.image-section {
+    background-color: #272121; /* Background color for the image section */
+}
+
+.text-section {
+    background-color: #fff; /* Background color for the text section */
+}
+
 
 .wishlist{
 

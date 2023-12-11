@@ -1,7 +1,7 @@
-<main>
+<!-- <main>
     <gallery [items]="items"></gallery>
   </main>
-  
+   -->
 
    <!-- <div class="container">
     <div class="row">
@@ -12,3 +12,29 @@
       </div>
     </div>
   </div> -->
+
+  <!-- Carousel wrapper -->
+  
+  <div id="carouselBasicExample" class="carousel slide carousel-fade" data-ride="carousel">
+    <!-- Inner -->
+    <div class="carousel-inner">
+      <div *ngFor="let item of items; let i = index" class="carousel-item" [class.active]="i === currentIndex">
+        <img [src]="item.src" class="d-block w-100 carousel-image" alt="{{ item.alt || 'Image ' + (i + 1) }}" />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Test Caption {{i}}</h5>
+          <p>Test description {{i}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Inner -->
+  
+    <!-- Controls -->
+    <button (click)="previous()" class="carousel-control-prev" type="button">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button (click)="next()" class="carousel-control-next" type="button">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>

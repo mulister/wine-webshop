@@ -8,6 +8,17 @@
     padding: 50px;
   }
 
+  .carousel-image {
+    height: 300px; /* Adjust the desired height */
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .carousel-inner .active .carousel-image {
+    opacity: 1;
+  }
+
    /* .thumbnail {
     float: left;
     margin: 10px;

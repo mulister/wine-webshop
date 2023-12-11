@@ -16,7 +16,7 @@ export class ItemListComponent implements OnInit {
   }
 
   ngOnInit() {
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 16; i++) {
       const wine: Wine = {
         id: i,
         name: "Wine" + i,
