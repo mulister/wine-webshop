@@ -10,6 +10,7 @@
     overflow: visible !important;
 }
 
+
 /* //Previous */
 
 body{
@@ -21,8 +22,8 @@ body{
 }
 
 .card{
-
-	background-color: #fff;
+	color: white;
+	background-color: #272121;
 	border:none;
 	border-radius: 10px;
 	width: 190px;
