@@ -1,32 +1,19 @@
- gallery {
-    width: 100%;
-  }
+.carousel-image {
+  height: 500px; /* Adjust the desired height */
+  object-fit: cover;
 
-   main {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 50px;
-  }
+  /* Combine fadeIn and fadeOut into a single animation */
+  animation: fadeInOut 1s ease-in-out forwards;
+}
 
-  .carousel-image {
-    height: 500px; /* Adjust the desired height */
-    object-fit: cover;
+@keyframes fadeInOut {
+  0% {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
   }
-  
-  .carousel-inner .active .carousel-image {
+  50% {
+    opacity: 0.5;
+  }
+  100% {
     opacity: 1;
   }
-
-   /* .thumbnail {
-    float: left;
-    margin: 10px;
-  }
-  
-  @media (min-width: 768px) {
-    .thumbnail {
-      display: inline-block;
-      margin-right: 10px;
-    }
-  } */
+}

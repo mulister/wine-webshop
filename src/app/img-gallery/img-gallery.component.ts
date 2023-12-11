@@ -20,14 +20,14 @@ export class ImgGalleryComponent implements OnInit {
     //     'https://cdn.pixabay.com/photo/2017/01/12/02/34/coffee-1973549_960_720.jpg',
     // },
     {
-      src: 'https://cdn.pixabay.com/photo/2020/06/26/04/40/flower-5341644_960_720.jpg',
+      src: 'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0005.jpg',
       thumbSrc:
-        'https://cdn.pixabay.com/photo/2020/06/26/04/40/flower-5341644_960_720.jpg',
+        'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0005.jpg',
     },
     {
-      src: 'https://cdn.pixabay.com/photo/2020/05/11/18/49/island-5159729_960_720.jpg',
+      src: 'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0002.jpg',
       thumbSrc:
-        'https://cdn.pixabay.com/photo/2020/05/11/18/49/island-5159729_960_720.jpg',
+        'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0002.jpg',
     },
     {
       src: 'https://cdn.pixabay.com/photo/2013/11/15/23/18/john-work-garrett-library-211375_960_720.jpg',
@@ -36,17 +36,32 @@ export class ImgGalleryComponent implements OnInit {
     },
   ];
 
-
   currentIndex = 0;
+  interval: any;
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.startAutoCycle();
   }
 
-  next() {
+  ngOnDestroy(): void {
+    this.clearAutoCycle();
+  }
+
+  startAutoCycle(): void {
+    this.interval = setInterval(() => {
+      this.next();
+    }, 10000); // 10 seconds interval
+  }
+
+  clearAutoCycle(): void {
+    clearInterval(this.interval);
+  }
+
+  next(): void {
     this.currentIndex = (this.currentIndex + 1) % this.items.length;
   }
 
-  previous() {
+  previous(): void {
     this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
   }
 }
