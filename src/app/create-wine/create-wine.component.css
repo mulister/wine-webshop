@@ -1,5 +1,5 @@
 body {
-    background-color: #272121;
+    background-color: black;
   }
 
   .container {
@@ -8,7 +8,7 @@ body {
   }
 
   .card {
-    color: black;
+    color: gray;
     background-color: #272121;
     border: none;
     border-radius: 20px; /* Increase border-radius for more rounded edges */

@@ -44,7 +44,7 @@ export class ItemListComponent implements OnInit {
       };
       this.items.push(wine)
     }
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 4; i++) {
       const wine: Wine = {
         id: i,
         name: "Wine" + i,

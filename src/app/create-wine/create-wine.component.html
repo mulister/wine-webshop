@@ -29,11 +29,11 @@
               </div>
 
               <div class="form-group">
-                <label for="type">Type</label>
+                <label for="type">Type (Dry/Wet)</label>
                 <input type="text" class="form-control" id="type" [(ngModel)]="item.type" name="type" required>
               </div>
               <div class="form-group">
-                <label for="color">Color</label>
+                <label for="color">Color (Red/White)</label>
                 <input type="text" class="form-control" id="color" [(ngModel)]="item.color" name="color" required>
               </div>
               <div class="form-group">
@@ -46,11 +46,11 @@
                 <input type="text" class="form-control" id="awards" [(ngModel)]="item.awards" name="awards">
               </div> -->
               <div class="form-group">
-                <label for="price">Price</label>
+                <label for="price">Price (€)</label>
                 <input type="number" class="form-control" id="price" [(ngModel)]="item.price" name="price" required>
               </div>
               <div class="form-group">
-                <label for="capacity">Capacity</label>
+                <label for="capacity">Capacity (cl)</label>
                 <input type="text" class="form-control" id="capacity" [(ngModel)]="item.capacity" name="capacity" required>
               </div>
               <button type="submit" (click)="createWine()" class="btn btn-primary">Create Item</button>
