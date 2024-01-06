@@ -16,6 +16,7 @@ import { CreateWineComponent } from './create-wine/create-wine.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AnnouncementComponent } from './announcement/announcement.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     ItemListComponent,
     ItemDetailComponent,
     CreateWineComponent,
-    HomeComponent
+    HomeComponent,
+    AnnouncementComponent
   ],
   imports: [
     BrowserModule,

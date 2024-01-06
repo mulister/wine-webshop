@@ -46,7 +46,7 @@ namespace Website.Controllers
 
         return Ok();
       }
-      catch(Exception ex)
+      catch (Exception ex)
       {
         return BadRequest($"Something went wrong adding a wine. {ex.Message} ");
       }
@@ -75,33 +75,34 @@ namespace Website.Controllers
     //  }
     //}
 
-    public async Task<string> UploadImageToBlobAsync(IFormFile imageFile)
-    {
-      // Get Azure Storage Account connection string from configuration
-      //string connectionString = _configuration.GetConnectionString("AzureStorageConnection");
-      string connectionString = "Test";
-      // Get a reference to the blob container
-      string containerName = "your-container-name"; // Replace with your Azure Storage container name
-      BlobContainerClient containerClient = new BlobContainerClient(connectionString, containerName);
+    //  public async Task<string> UploadImageToBlobAsync(IFormFile imageFile)
+    //  {
+    //    // Get Azure Storage Account connection string from configuration
+    //    //string connectionString = _configuration.GetConnectionString("AzureStorageConnection");
+    //    string connectionString = "Test";
+    //    // Get a reference to the blob container
+    //    string containerName = "your-container-name"; // Replace with your Azure Storage container name
+    //    BlobContainerClient containerClient = new BlobContainerClient(connectionString, containerName);
 
-      // Create the container if it doesn't exist
-      await containerClient.CreateIfNotExistsAsync();
+    //    // Create the container if it doesn't exist
+    //    await containerClient.CreateIfNotExistsAsync();
 
-      // Generate a unique name for the blob
-      string blobName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
+    //    // Generate a unique name for the blob
+    //    string blobName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
 
-      // Get a reference to the blob
-      BlobClient blobClient = containerClient.GetBlobClient(blobName);
+    //    // Get a reference to the blob
+    //    BlobClient blobClient = containerClient.GetBlobClient(blobName);
 
-      // Upload the image to the blob
-      using (var stream = imageFile.OpenReadStream())
-      {
-        await blobClient.UploadAsync(stream, true);
-      }
+    //    // Upload the image to the blob
+    //    using (var stream = imageFile.OpenReadStream())
+    //    {
+    //      await blobClient.UploadAsync(stream, true);
+    //    }
 
-      // Return the URL of the uploaded image
-      return blobClient.Uri.ToString();
-    }
+    //    // Return the URL of the uploaded image
+    //    return blobClient.Uri.ToString();
+    //  }
 
+    //}
   }
 }

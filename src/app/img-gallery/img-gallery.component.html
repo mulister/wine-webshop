@@ -18,7 +18,7 @@
   <div id="carouselBasicExample" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
       <div *ngFor="let item of items; let i = index" class="carousel-item" [class.active]="i === currentIndex">
-        <img [src]="item.src" class="d-block w-100 carousel-image" alt="{{ item.alt || 'Image ' + (i + 1) }}" />
+        <a href="/announcement"><img [src]="item.src" class="d-block w-100 carousel-image" alt="{{ item.alt || 'Image ' + (i + 1) }}" /></a>
         <div class="carousel-caption d-none d-md-block">
           <h5>Test Caption {{i}}</h5>
           <p>Test description {{i}}</p>
