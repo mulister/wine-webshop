@@ -96,3 +96,13 @@ Thumbs.db
 /api/Webshop.Api/Webshop.Api/bin/Debug/net6.0/Webshop.Api.exe
 /api/Webshop.Api/Webshop.Api/bin/Debug/net6.0/Webshop.Api.pdb
 /api/Webshop.Api/Webshop.Api/obj/Debug/net6.0/Webshop.Api.AssemblyInfoInputs.cache
+/api/Webshop.Api/Webshop.Api/bin/Debug/net6.0/Azure.Core.dll
+/api/Webshop.Api/Webshop.Api/bin/Debug/net6.0/Azure.Storage.Blobs.dll
+/api/Webshop.Api/Webshop.Api/bin/Debug/net6.0/Azure.Storage.Common.dll
+/api/Webshop.Api/Webshop.Api/bin/Debug/net6.0/Microsoft.Bcl.AsyncInterfaces.dll
+/api/Webshop.Api/Webshop.Api/bin/Debug/net6.0/System.IO.Hashing.dll
+/api/Webshop.Api/Webshop.Api/bin/Debug/net6.0/System.Memory.Data.dll
+/api/Webshop.Api/Webshop.Api/obj/Debug/net6.0/ref/Webshop.Api.dll
+/api/Webshop.Api/Webshop.Api/obj/Debug/net6.0/refint/Webshop.Api.dll
+/api/Webshop.Api/Webshop.Api/obj/Debug/net6.0/Webshop.Api.AssemblyInfo.cs
+/api/Webshop.Api/Webshop.Api/obj/Debug/net6.0/Webshop.Api.sourcelink.json
