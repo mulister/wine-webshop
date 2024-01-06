@@ -5,7 +5,7 @@ import { Wine } from '../shared/wine.model';
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
-  styleUrls: ['./item-detail.component.css']
+  styleUrls: ['./item-detail.component.css', '../../styles.css']
 })
 export class ItemDetailComponent implements OnInit  {
   public selectedWine!: Wine;

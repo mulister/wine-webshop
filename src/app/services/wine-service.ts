@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,25 @@ export class WineService {
 
   // Example method to make a POST request
   createWine(wineData: any): Observable<any> {
-    return this.httpClient.post(this.apiUrl, wineData);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      // Add other headers as needed
+    });
+
+    const data = {
+      "name": "string",
+      "type": "string",
+      "color": "string",
+      "description": "string",
+      "awards": [
+        {
+          "name": "string"
+        }
+      ],
+      "price": 0
+    }
+
+    return this.httpClient.post(this.apiUrl, data, { headers });
   }
 }

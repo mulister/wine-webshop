@@ -20,7 +20,6 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    /* background-color: darkslategray; */
     background-color: ghostwhite;
 }
 
@@ -47,46 +46,58 @@ h3 {
     float: left;
 }
 
-.mat-dialog-container.mat-dialog-class {
-    overflow: visible !important;
+.custom-dialog-backdrop {
+    background-color: transparent !important;
 }
 
-.mat-dialog-class {
-    overflow: visible !important;
-}
-
-.dialog-content {
+.mat-mdc-dialog-surface,
+.ng-star-inserted,
+.mdc-dialog__container {
+    background-color: transparent !important;
     height: 100%;
     width: 100%;
-    padding: 1px;
-    background-color: transparent;
-    overflow: visible;
+}
+
+.mat-mdc-dialog-container,
+.mdc-dialog,
+.cdk-dialog-container,
+.mdc-dialog--open {
+    height: 100%;
+    width: 100%;
+}
+
+.cdk-overlay-pane,
+.custom-modalbox,
+.cdk-global-overlay-wrapper {
+    max-width: 100% !important;
 }
 
 .product-card {
+    color: white;
     height: 100%;
     width: 100%;
     padding: 1px;
     display: grid;
     grid-template-rows: 1fr;
     font-family: "Raleway", sans-serif;
-    background-color: white;
-    overflow: visible;
+    background-color: transparent;
 }
 
 .product {
+    background-color: #4c4c4c !important;
     display: grid;
     grid-template-columns: 0.9fr 1fr;
     margin: auto;
     padding: 2.5em 0;
     min-width: 600px;
-    background-color: transparent;
+    max-width: 750px;
     border-radius: 5px;
+    background-color: white;
 }
 
 .product-photo {
     position: relative;
-}
+  }
 
 .photo-container {
     position: absolute;
@@ -97,13 +108,13 @@ h3 {
     height: 100%;
     border-radius: 6px;
     box-shadow: 4px 4px 25px -2px rgba(0, 0, 0, 0.3);
-}
+  }
 
 .photo-main {
     border-radius: 6px 6px 0 0;
-    background-color: #800080;
-    background: radial-gradient(#e5f89e, #6b036b);
-}
+    background-color: #d0d0d0;
+    background: radial-gradient(gray, black);
+  }
 
 .controls {
     display: flex;
@@ -118,15 +129,15 @@ h3 {
 
 .img-main {
     position: absolute;
-    left: -3.5em;
     top: 2em;
-    max-width: 110%;
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+    max-height: 100%; /* Ensure the image doesn't exceed the container height */
     filter: saturate(150%) contrast(120%) hue-rotate(10deg) drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
     overflow: visible;
     z-index: 1;
-    max-width: 100%;
     filter: drop-shadow(1px 1px 3px #a6a6a6);
-}
+    object-fit: cover; /* Scale the image to cover the container */
+  }
 
 .photo-album {
     padding: 0.7em 1em;
@@ -219,7 +230,7 @@ h3 {
     }
 }
 
-.buy--btn {
+.buy-btn {
     padding: 1.5em 3.1em;
     border: none;
     border-radius: 7px;
@@ -230,6 +241,7 @@ h3 {
     background-color: #ff3f40;
     box-shadow: 2px 2px 25px -7px #4c4c4c;
     cursor: pointer;
+    width: 100%;
 
     &:active {
         transform: scale(0.97);
