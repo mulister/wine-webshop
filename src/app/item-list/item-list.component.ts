@@ -16,7 +16,7 @@ export class ItemListComponent implements OnInit {
   }
 
   ngOnInit() {
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 6; i++) {
       const wine: Wine = {
         id: i,
         name: "Wine" + i,
@@ -25,8 +25,36 @@ export class ItemListComponent implements OnInit {
         price: 19.99,
         image: 'assets/images/Wine bottle.png',
         capacity: '500cl',
-        color: 'red',
-        type: 'dry'
+        color: 'White',
+        type: 'Dry'
+      };
+      this.items.push(wine)
+    }
+    for (let i = 0; i < 6; i++) {
+      const wine: Wine = {
+        id: i,
+        name: "Wine" + i,
+        smallDescription: '*dry *red *cheap',
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", // Add description and other properties
+        price: 19.99,
+        image: 'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0047.jpg',
+        capacity: '500cl',
+        color: 'Red',
+        type: 'Wet'
+      };
+      this.items.push(wine)
+    }
+    for (let i = 0; i < 4; i++) {
+      const wine: Wine = {
+        id: i,
+        name: "Wine" + i,
+        smallDescription: '*dry *red *cheap',
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", // Add description and other properties
+        price: 27.99,
+        image: 'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0049.jpg',
+        capacity: '350cl',
+        color: 'Red',
+        type: 'Dry'
       };
       this.items.push(wine)
     }

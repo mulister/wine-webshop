@@ -15,5 +15,6 @@ namespace Data.Objects
     public string Description { get; set; }
     public List<Award> Awards { get; set; }
     public int Price { get; set; }
+    public string ImageUrl { get; set; }
   }
 }

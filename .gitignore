@@ -85,3 +85,6 @@ Thumbs.db
 /api/Webshop.Api/.vs/Webshop.Api/DesignTimeBuild/.dtbcache.v2
 /api/Webshop.Api/.vs/ProjectEvaluation/webshop.api.metadata.v7.bin
 /api/Webshop.Api/.vs/ProjectEvaluation/webshop.api.projects.v7.bin
+/api/Webshop.Api/Data/bin/Debug/net6.0/Data.deps.json
+/api/Webshop.Api/Data/obj/Debug/net6.0/ref/Data.dll
+/api/Webshop.Api/Data/obj/Debug/net6.0/refint/Data.dll
