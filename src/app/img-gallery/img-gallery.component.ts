@@ -29,11 +29,6 @@ export class ImgGalleryComponent implements OnInit {
       thumbSrc:
         'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0002.jpg',
     },
-    {
-      src: 'https://cdn.pixabay.com/photo/2013/11/15/23/18/john-work-garrett-library-211375_960_720.jpg',
-      thumbSrc:
-        'https://cdn.pixabay.com/photo/2013/11/15/23/18/john-work-garrett-library-211375_960_720.jpg',
-    },
   ];
 
   currentIndex = 0;

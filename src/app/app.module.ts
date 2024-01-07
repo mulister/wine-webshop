@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { AnnouncementCreateComponent } from './announcement-create/announcement-create.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AnnouncementCreateComponent } from './announcement-create/announcement-
     CreateWineComponent,
     HomeComponent,
     AnnouncementComponent,
-    AnnouncementCreateComponent
+    AnnouncementCreateComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
