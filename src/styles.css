@@ -7,14 +7,6 @@
     box-sizing: border-box;
 }
 
-.footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
-
 ::ng-deep .custom-dialog>mat-dialog-container {
     background-color: var(--background);
     overflow: visible !important;
