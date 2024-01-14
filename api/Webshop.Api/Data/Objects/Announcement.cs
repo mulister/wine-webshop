@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data.Objects
 {
-  internal class Announcement
+  public class Announcement
   {
     public int Id { get; set; }
     public string Name { get; set; }

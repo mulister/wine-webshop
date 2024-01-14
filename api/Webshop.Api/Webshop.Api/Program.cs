@@ -1,14 +1,24 @@
+using Data;
 using Data.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<WebshopContext>(options =>
+{
+  // Configure your database connection here
+  options.UseSqlServer("Server=.;Database=QualityWines;Integrated Security=True;");
+});
+
 // Add services to the container.
-builder.Services.AddSingleton<IWinesService, WineService>();
+builder.Services.AddScoped<IWinesService, WineService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 
 
 

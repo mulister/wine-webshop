@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Objects
 {
-  internal class ShoppingCart
+  public class ShoppingCart
   {
     public int Id { get; set; }
     public List<Wine>? CartItems { get; set; }
