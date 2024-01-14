@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Wine } from '../shared/wine.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-detail',
@@ -9,7 +10,7 @@ import { Wine } from '../shared/wine.model';
 })
 export class ItemDetailComponent implements OnInit  {
   public selectedWine!: Wine;
-  constructor(
+  constructor(private router: Router,
     public dialogRef: MatDialogRef<ItemDetailComponent>,
     @Inject(MAT_DIALOG_DATA) private wine: Wine
   ) { 
@@ -50,5 +51,11 @@ export class ItemDetailComponent implements OnInit  {
 
   private emitCounterValue() {
     this.counterChange.emit(this.counterValue);
+  }
+
+  addToCart() {
+    // Assuming '/cart' is the route for the cart page
+    this.router.navigate(['/cart']);
+    this.dialogRef.close();
   }
 }

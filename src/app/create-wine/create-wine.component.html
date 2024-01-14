@@ -29,13 +29,21 @@
               </div>
 
               <div class="form-group">
-                <label for="type">Type (Dry/Wet)</label>
-                <input type="text" class="form-control" id="type" [(ngModel)]="item.type" name="type" required>
-              </div>
-              <div class="form-group">
-                <label for="color">Color (Red/White)</label>
-                <input type="text" class="form-control" id="color" [(ngModel)]="item.color" name="color" required>
-              </div>
+                <label for="type">Type</label>
+                <select class="form-select" id="type" [(ngModel)]="item.type" name="type" required>
+                    <option value="Dry">Dry</option>
+                    <option value="Sweet">Sweet</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="color">Color</label>
+                <select class="form-select" id="color" [(ngModel)]="item.color" name="color" required>
+                    <option value="Red">Red</option>
+                    <option value="White">White</option>
+                </select>
+            </div>
+
               <div class="form-group">
                 <label for="description">Description</label>
                 <textarea class="form-control" id="description" [(ngModel)]="item.description" name="description"

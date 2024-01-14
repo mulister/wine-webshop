@@ -16,6 +16,10 @@ import { CreateWineComponent } from './create-wine/create-wine.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AnnouncementComponent } from './announcement/announcement.component';
+import { AnnouncementCreateComponent } from './announcement-create/announcement-create.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { HttpClientModule } from '@angular/common/http';
     ItemListComponent,
     ItemDetailComponent,
     CreateWineComponent,
-    HomeComponent
+    HomeComponent,
+    AnnouncementComponent,
+    AnnouncementCreateComponent,
+    ShoppingCartComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
