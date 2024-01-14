@@ -20,6 +20,7 @@
             </div>
         </div>
         <div>
+            <div class="close-button" (click)="closeModal()"><button>X</button></div>
             <div class="title">
                 <h1>{{ selectedWine.name }}</h1>
                 <span>COD: 45999</span>
@@ -41,7 +42,15 @@
                     <li>{{ selectedWine.description }}</li>
                 </ul>
             </div>
-            <button (click)="addToCart()" class="buy-btn">Add to cart</button>
+            <div>
+                
+            </div>
+            <div class="counter-container">
+                <button class="counter-btn" (click)="increment()">+</button>
+                <input class="counter-input" type="text" [(ngModel)]="counterValue" />
+                <button class="counter-btn" (click)="decrement()">-</button>
+            </div>
+            <button class="buy-btn">ADD TO CART</button>
         </div>
     </div>
 </div>

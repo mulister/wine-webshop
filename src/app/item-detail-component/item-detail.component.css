@@ -1,0 +1,30 @@
+.close-button{
+    max-width: 50px;
+    max-height: 50px;
+    float: right;
+    right: 5px;
+}
+
+/* number-counter.component.css */
+.counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    float:left;
+}
+
+.counter-btn,
+.counter-input {
+    width: 50px;
+    height: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+.counter-btn {
+ width: 25px !important;
+}
