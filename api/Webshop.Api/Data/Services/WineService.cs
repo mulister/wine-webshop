@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Data.Services
 {
-  public class WineService
+  public class WineService : IWinesService
   {
     WebshopContext _webshopContext;
     public WineService(WebshopContext webshopContext)

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Data.Objects
 {
-  public class Award
+  internal class Announcement
   {
     public int Id { get; set; }
     public string Name { get; set; }
-    public int Year { get; set; }
+    public string Description { get; set; }
+    public string ImageUri { get; set; }
   }
 }
