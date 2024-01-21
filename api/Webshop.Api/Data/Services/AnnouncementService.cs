@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Services
 {
-  internal class AnnouncementService
+  public class AnnouncementService
   {
 
     WebshopContext _webshopContext;
