@@ -12,6 +12,11 @@ builder.Services.AddDbContext<WebshopContext>(options =>
 
 // Add services to the container.
 builder.Services.AddScoped<IWinesService, WineService>();
+builder.Services.AddScoped<IAwardService, AwardsService>();
+builder.Services.AddScoped<IAnnouncementService, AnnouncementService>();
+builder.Services.AddScoped<IAwardService, AwardsService>();
+builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

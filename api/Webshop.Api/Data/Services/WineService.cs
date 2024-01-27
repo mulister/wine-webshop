@@ -17,7 +17,7 @@ namespace Data.Services
       _webshopContext = webshopContext;
     }
 
-    public async Task Create(Wine wine)
+    public async Task<int> Create(Wine wine)
     {
       if (string.IsNullOrWhiteSpace(wine.Name))
       {
@@ -27,6 +27,8 @@ namespace Data.Services
       _webshopContext.Add(wine);
 
       await _webshopContext.SaveChangesAsync();
+
+      return wine.Id;
     }
 
     public async Task Delete(int id)
