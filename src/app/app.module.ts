@@ -20,6 +20,7 @@ import { AnnouncementComponent } from './announcement/announcement.component';
 import { AnnouncementCreateComponent } from './announcement-create/announcement-create.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { LoginComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     AnnouncementComponent,
     AnnouncementCreateComponent,
     ShoppingCartComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
