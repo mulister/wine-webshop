@@ -1,11 +1,7 @@
 // Startup.cs
 using Data;
 using Data.Services;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
 namespace Webshop.Api
@@ -21,9 +17,6 @@ namespace Webshop.Api
 
     public void ConfigureServices(IServiceCollection services)
     {
-
-      services.AddScoped<WineService>();
-
       services.AddCors(options =>
       {
         options.AddDefaultPolicy(builder =>
