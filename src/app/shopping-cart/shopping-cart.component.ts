@@ -19,8 +19,13 @@ export class ShoppingCartComponent implements OnInit{
     this.shoppingCartService.getCart().subscribe(result => {
       result.cartItems?.forEach(wine => {
         this.wines.push(wine);
+        console.log("wine", wine);
+        if(wine.price){
+          this.totalPrice += wine.price;
+        }
       })
     })
+
 
     // const wine1: Wine = {
     //   id: 1,
@@ -47,10 +52,5 @@ export class ShoppingCartComponent implements OnInit{
 
     // this.wines.push(wine1);
     // this.wines.push(wine2);
-
-    this.wines.forEach(wine => {
-      if(wine.price)
-      this.totalPrice += wine.price;
-    })
    }
 }

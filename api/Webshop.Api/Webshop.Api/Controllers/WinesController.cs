@@ -41,7 +41,17 @@ namespace Webshop.Api.Controllers
     {
       try
       {
-        wine.ImageUrl = "https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0050.jpg";
+        var wineImages = new List<string>
+        {
+            "https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0049.jpg",
+            "https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0050.jpg",
+            "https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0048.jpg",
+        };
+
+        Random random = new Random();
+        int randomIndex = random.Next(wineImages.Count);
+
+        wine.ImageUrl = wineImages[randomIndex];
         await _winesService.Create(wine);
 
         return Ok();

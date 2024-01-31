@@ -22,9 +22,6 @@ export class ItemListComponent implements OnInit {
     this.wineService.getWines().subscribe(result => {
       console.log(result);
       this.items = result;
-      this.items.forEach(item => {
-        item.imageUrl = 'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0050.jpg';
-      })
     })
 
   //   for (let i = 0; i < 6; i++) {

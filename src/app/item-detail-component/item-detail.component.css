@@ -1,3 +1,17 @@
+.variant {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.list-icons {
+    list-style: none;
+    padding: 0;
+}
+
+.list-icons li {
+    margin-bottom: 10px;
+}
+
 .close-button{
     max-width: 50px;
     max-height: 50px;

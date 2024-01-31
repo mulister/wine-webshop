@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Wine } from '../shared/wine.model';
 import { WineService } from '../services/wine-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-wine',
@@ -13,7 +14,7 @@ export class CreateWineComponent implements OnInit {
   /**
    *
    */
-  constructor(private wineService: WineService){}
+  constructor(private wineService: WineService, private router: Router){}
 
   ngOnInit(){
     this.item = {
@@ -39,6 +40,8 @@ export class CreateWineComponent implements OnInit {
     console.log(this.item);
      this.wineService.createWine(this.item).subscribe(result => {
       console.log("Success", result);
+      this.router.navigate(['/']);
+      
     },
     error => {
       console.log("Error", error);

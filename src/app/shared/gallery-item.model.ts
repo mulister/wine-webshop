@@ -1,4 +1,5 @@
 export interface GalleryItem {
+    id?: number;
     /**
      * Media url
      */
