@@ -17,6 +17,7 @@ export class CreateWineComponent implements OnInit {
 
   ngOnInit(){
     this.item = {
+      id: 0,
       name: '',
       smallDescription: '',
       description: '',

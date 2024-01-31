@@ -41,6 +41,7 @@ namespace Webshop.Api.Controllers
     {
       try
       {
+        wine.ImageUrl = "https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0050.jpg";
         await _winesService.Create(wine);
 
         return Ok();

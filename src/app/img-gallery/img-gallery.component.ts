@@ -29,11 +29,15 @@ export class ImgGalleryComponent implements OnInit {
       src: 'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0005.jpg',
       thumbSrc:
         'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0005.jpg',
+        description: "First announcement description",
+        caption: "First annoucement title"
     },
     {
       src: 'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0002.jpg',
       thumbSrc:
         'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0002.jpg',
+        description: "Second announcement description",
+        caption: "Second annoucement title"
     },
   ];
 

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Inject, Input, OnInit, Output, ViewEncapsulati
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Wine } from '../shared/wine.model';
 import { Router } from '@angular/router';
+import { ShoppingCartService } from '../services/shopping-cart-service';
 
 @Component({
   selector: 'app-item-detail',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ItemDetailComponent implements OnInit  {
   public selectedWine!: Wine;
-  constructor(private router: Router,
+  constructor(private router: Router, private cartService: ShoppingCartService,
     public dialogRef: MatDialogRef<ItemDetailComponent>,
     @Inject(MAT_DIALOG_DATA) private wine: Wine
   ) { 
@@ -55,6 +56,10 @@ export class ItemDetailComponent implements OnInit  {
 
   addToCart() {
     // Assuming '/cart' is the route for the cart page
+    this.cartService.addWineToCart(this.wine.id).subscribe(result => {
+      console.log("Ok", result);
+    })
+
     this.router.navigate(['/cart']);
     this.dialogRef.close();
   }
