@@ -7,7 +7,7 @@
                         <i class="material-icons">share</i>
                         <i class="material-icons">favorite_border</i>
                     </div>
-                    <img [src]="selectedWine.image" class="img-main" alt="Wine Image">
+                    <img [src]="selectedWine.imageUrl" class="img-main" alt="Wine Image">
                 </div>
                 <!-- <div class="photo-album">
                     <ul class="list-icons">
@@ -46,9 +46,9 @@
                 
             </div>
             <div class="counter-container">
-                <button class="counter-btn" (click)="increment()">+</button>
-                <input class="counter-input" type="text" [(ngModel)]="counterValue" />
-                <button class="counter-btn" (click)="decrement()">-</button>
+                <!-- <button class="counter-btn" (click)="increment()">+</button> -->
+                <input class="counter-input" type="number" [(ngModel)]="counterValue" />
+                <!-- <button class="counter-btn" (click)="decrement()">-</button> -->
             </div>
             <button class="buy-btn">ADD TO CART</button>
         </div>

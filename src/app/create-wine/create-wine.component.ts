@@ -24,9 +24,14 @@ export class CreateWineComponent implements OnInit {
       price: 0,
       color: '',
       type: '',
-      image: '' // You may want to provide a default image URL or handle image upload separately
+      imageUrl: '' // You may want to provide a default image URL or handle image upload separately
     }; 
    }
+
+   onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    this.item.imageBlob = file;
+  }
 
    createWine() : any {
 

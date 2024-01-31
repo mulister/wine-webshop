@@ -7,6 +7,6 @@ export interface Wine {
     price?: number;
     color?: string;
     type?: string;
-    imageBlob?: Blob;
-    image?: string;
+    imageBlob?: File;
+    imageUrl?: string;
   }

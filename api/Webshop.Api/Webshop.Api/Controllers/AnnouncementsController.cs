@@ -1,7 +1,6 @@
 using Data;
 using Data.Objects;
 using Data.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Webshop.Api.Controllers
@@ -10,11 +9,29 @@ namespace Webshop.Api.Controllers
   [ApiController]
   public class AnnouncementsController : ControllerBase
   {
+    WebshopContext _webshopContext;
     private readonly IAnnouncementService _announcementService;
 
-    public AnnouncementsController(IAnnouncementService announcementService)
+    public AnnouncementsController(IAnnouncementService announcementService, WebshopContext context)
     {
       _announcementService = announcementService;
+      _webshopContext = context;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+      try
+      {
+        var announcements = _webshopContext.Announcements.ToList();
+
+        return Ok(announcements);
+
+      }
+      catch (Exception ex)
+      {
+        return BadRequest("Something went wrong attempting to add the Wine");
+      }
     }
 
     [HttpPost]

@@ -14,9 +14,26 @@ namespace Webshop.Api.Controllers
     WebshopContext _webshopContext;
     private readonly IWinesService _winesService;
 
-    public WinesController(IWinesService winesService)
+    public WinesController(IWinesService winesService, WebshopContext context)
     {
       _winesService = winesService;
+      _webshopContext = context;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+      try
+      {
+        var wines = _webshopContext.Wines.ToList();
+
+        return Ok(wines);
+
+      }
+      catch (Exception ex)
+      {
+        return BadRequest("Something went wrong attempting to add the Wine");
+      }
     }
 
     [HttpPost]

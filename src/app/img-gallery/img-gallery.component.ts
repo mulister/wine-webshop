@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryItem } from '../shared/gallery-item.model';
+import { AnnouncementService } from '../services/announcement-service';
 
 @Component({
   selector: 'app-img-gallery',
@@ -8,6 +9,11 @@ import { GalleryItem } from '../shared/gallery-item.model';
 })
 
 export class ImgGalleryComponent implements OnInit {
+
+  constructor(private announcementService: AnnouncementService){
+
+  }
+
   items: GalleryItem[] = [
     // {
     //   src: 'src\app\img-gallery\img-gallery.component.css',
@@ -36,6 +42,11 @@ export class ImgGalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.startAutoCycle();
+    this.announcementService.getAnnouncements().subscribe(result =>{
+      result.forEach(item => {
+        // this.items.push(item)
+      })
+    })
   }
 
   ngOnDestroy(): void {
