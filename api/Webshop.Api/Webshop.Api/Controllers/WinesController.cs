@@ -1,6 +1,7 @@
 using Data;
 using Data.Objects;
 using Data.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

@@ -11,14 +11,15 @@ export class WineService {
 
   constructor(private httpClient: HttpClient) {}
 
+  
+
   // Example method to make a POST request
   createWine(wineData: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      // Add other headers as needed
     });
-
+  
     const data = {
       "name": "string",
       "type": "string",
@@ -29,9 +30,10 @@ export class WineService {
           "name": "string"
         }
       ],
-      "price": 0
-    }
-
+      "price": 0,
+      "imageUrl": "testUrl"
+    };
+  
     return this.httpClient.post(this.apiUrl, data, { headers });
   }
 }

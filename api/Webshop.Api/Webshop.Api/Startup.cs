@@ -17,22 +17,16 @@ namespace Webshop.Api
 
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddCors(options =>
-      {
-        options.AddDefaultPolicy(builder =>
-        {
-          builder.AllowAnyOrigin()
-                 .AllowAnyMethod()
-                 .AllowAnyHeader();
-        });
-
-        options.AddPolicy("AllowAngularLocalhost", builder =>
-        {
-          builder.WithOrigins("http://localhost:4200")
-                 .AllowAnyHeader()
-                 .AllowAnyMethod();
-        });
-      });
+      //services.AddCors(options =>
+      //{
+      //  options.AddPolicy("AllowSpecificOrigin",
+      //      builder =>
+      //      {
+      //        builder.WithOrigins("http://localhost:4200")
+      //               .AllowAnyHeader()
+      //               .AllowAnyMethod();
+      //      });
+      //});
 
       // Other service configurations...
       services.AddDbContext<WebshopContext>(options =>
@@ -53,11 +47,14 @@ namespace Webshop.Api
         app.UseDeveloperExceptionPage();
       }
 
+      app.UseRouting();
+
       // Other app configurations...
-      app.UseCors("AllowAngularLocalhost");
+      //app.UseCors("AllowSpecificOrigin");
+
+      //app.UseCors("AllowAngularLocalhost");
       // Enable middleware to serve generated Swagger as a JSON endpoint.
       app.UseSwagger();
-      app.UseRouting();
       // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
       // specifying the Swagger JSON endpoint.
       app.UseSwaggerUI(c =>
