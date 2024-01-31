@@ -15,6 +15,8 @@ export interface GalleryItem {
      * Description that is to be shown on the currently displayed gallery item
      */
     description?: string;
+
+    caption?: string
     /**
      * Is asset a video?
      */

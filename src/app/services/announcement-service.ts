@@ -18,6 +18,10 @@ export class AnnouncementService {
     return this.httpClient.get<Announcement[]>(this.apiUrl);
   }
 
+  getAnnouncement(id: number): Observable<Announcement> {
+    return this.httpClient.get<Announcement>(this.apiUrl + "/" + id);
+  }
+
   // Example method to make a POST requestw
   createAnnouncement(announcement: Announcement): Observable<any> {
     const headers = new HttpHeaders({

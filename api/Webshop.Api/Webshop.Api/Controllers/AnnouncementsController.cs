@@ -34,6 +34,23 @@ namespace Webshop.Api.Controllers
       }
     }
 
+    [HttpGet]
+    [Route("{id}")]
+    public async Task<IActionResult> Get(int id)
+    {
+      try
+      {
+        var announcements = _webshopContext.Announcements.FirstOrDefault(i => i.Id == id);
+
+        return Ok(announcements);
+
+      }
+      catch (Exception ex)
+      {
+        return BadRequest("Something went wrong attempting to fetch the announcement");
+      }
+    }
+
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] Announcement announcement)
     {

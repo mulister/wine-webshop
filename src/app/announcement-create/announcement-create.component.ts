@@ -15,7 +15,7 @@ export class AnnouncementCreateComponent {
 
   createAnnouncement(){
     this.announcementService.createAnnouncement(this.announcement).subscribe(result => {
-      console.log(result);
+      console.log("OK",result);
     })
   }
 }

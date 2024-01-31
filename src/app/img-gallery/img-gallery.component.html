@@ -20,8 +20,8 @@
       <div *ngFor="let item of items; let i = index" class="carousel-item" [class.active]="i === currentIndex">
         <a href="/announcement/{{i}}"><img [src]="item.src" class="d-block w-100 carousel-image" alt="{{ item.alt || 'Image ' + (i + 1) }}" /></a>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Test Caption {{i}}</h5>
-          <p>Test description {{i}}</p>
+          <h5>{{item.caption}}</h5>
+          <p>{{item.description}}</p>
         </div>
       </div>
     </div>

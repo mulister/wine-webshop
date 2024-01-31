@@ -44,7 +44,9 @@ export class ImgGalleryComponent implements OnInit {
     this.startAutoCycle();
     this.announcementService.getAnnouncements().subscribe(result =>{
       result.forEach(item => {
-        // this.items.push(item)
+        let galleryItem : GalleryItem = {src: 'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0005.jpg',
+      thumbSrc: 'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0005.jpg', caption: item.name, description: item.description }
+        this.items.push(galleryItem)
       })
     })
   }
