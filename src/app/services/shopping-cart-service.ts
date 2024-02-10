@@ -18,12 +18,12 @@ export class ShoppingCartService {
     return this.httpClient.get<ShoppingCart>(this.apiUrl);
   }
 
-  addWineToCart(wineId: number): Observable<ShoppingCart> {
+  addWineToCart(wineId: number, amount:number): Observable<ShoppingCart> {
     const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       });
-      return this.httpClient.post<ShoppingCart>(`${this.apiUrl}/wine/${wineId}`, null, { headers });  }
+      return this.httpClient.post<ShoppingCart>(`${this.apiUrl}/wine/${wineId}`, {amount: amount}, { headers });  }
 
   
   getAnnouncement(id: number): Observable<Announcement> {

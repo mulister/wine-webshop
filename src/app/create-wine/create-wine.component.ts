@@ -10,9 +10,6 @@ import { WineService } from '../services/wine-service';
 export class CreateWineComponent implements OnInit {
   item!: Wine;
 
-  /**
-   *
-   */
   constructor(private wineService: WineService){}
 
   ngOnInit(){
@@ -35,9 +32,8 @@ export class CreateWineComponent implements OnInit {
   }
 
    createWine() : any {
-
     console.log(this.item);
-     this.wineService.createWine(this.item).subscribe(result => {
+    this.wineService.createWine(this.item).subscribe(result => {
       console.log("Success", result);
     },
     error => {

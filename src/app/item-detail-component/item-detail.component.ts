@@ -56,7 +56,7 @@ export class ItemDetailComponent implements OnInit  {
 
   addToCart() {
     // Assuming '/cart' is the route for the cart page
-    this.cartService.addWineToCart(this.wine.id).subscribe(result => {
+    this.cartService.addWineToCart(this.wine.id, this.counterValue).subscribe(result => {
       console.log("Ok", result);
     })
 

@@ -13,20 +13,19 @@ builder.Services.AddDbContext<WebshopContext>(options =>
 var allowAllOrigins = "_allowAllOrigins";
 
 // Add services to the container.
-builder.Services.AddScoped<IWinesService, WineService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IAwardService, AwardsService>();
 builder.Services.AddScoped<IAnnouncementService, AnnouncementService>();
-builder.Services.AddScoped<IAwardService, AwardsService>();
 builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
 
 builder.Services.AddCors(options =>
 {
   options.AddPolicy(name: allowAllOrigins,
-                    policy =>
-                    {
-                      policy.AllowAnyOrigin()
-                      .AllowAnyMethod().AllowAnyHeader();
-                    });
+    policy =>
+    {
+      policy.AllowAnyOrigin()
+      .AllowAnyMethod().AllowAnyHeader();
+    });
 });
 
 
