@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Wine } from '../shared/wine.model';
 import { Router } from '@angular/router';
 import { ShoppingCartService } from '../services/shopping-cart-service';
+import { appGlobals } from 'src/assets/globals/app.globals';
 
 @Component({
   selector: 'app-item-detail',
@@ -20,6 +21,7 @@ export class ItemDetailComponent implements OnInit  {
 
   ngOnInit(): void {
     this.selectedWine = this.wine;
+    //this.resetCart();
   }
 
   closeModal() {
@@ -56,11 +58,37 @@ export class ItemDetailComponent implements OnInit  {
 
   addToCart() {
     // Assuming '/cart' is the route for the cart page
-    this.cartService.addWineToCart(this.wine.id, this.counterValue).subscribe(result => {
-      console.log("Ok", result);
-    })
+    // this.cartService.addWineToCart(this.wine.id, this.counterValue).subscribe(result => {
+    //   console.log("Ok", result);
+    // })
 
-    this.router.navigate(['/cart']);
-    this.dialogRef.close();
+    let body = [];
+    let jsonString = localStorage.getItem(appGlobals.lsShoppingCart);
+    console.log(jsonString);
+
+    if (jsonString || jsonString === ''){
+      let object = JSON.parse(jsonString);
+
+      object.forEach((wine: Wine) => {
+        body.push(wine);
+      });
+      
+      body.push({ wine: this.selectedWine, counter: this.counterValue });
+      localStorage.setItem(appGlobals.lsShoppingCart, JSON.stringify(body));
+
+      //this.router.navigate(['/cart']);
+      this.dialogRef.close();
+    }else{
+      body.push({ wine: this.selectedWine, counter: this.counterValue });
+      localStorage.setItem(appGlobals.lsShoppingCart, JSON.stringify(body));
+
+      //this.router.navigate(['/cart']);
+      this.dialogRef.close();
+    }
+  }
+
+  resetCart() {
+    localStorage.removeItem(appGlobals.lsShoppingCart);
+    localStorage.clear();
   }
 }
