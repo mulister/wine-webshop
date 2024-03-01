@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Wine } from '../shared/wine.model';
 import { ShoppingCartService } from '../services/shopping-cart-service';
+import { appGlobals } from 'src/assets/globals/app.globals';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -25,8 +26,27 @@ export class ShoppingCartComponent implements OnInit{
         }
       })
     })
+    // this.shoppingCartService.getCart().subscribe(result => {
+    //   result.cartItems?.forEach(wine => {
+    //     this.wines.push(wine);
+    //   })
+    // })
+    
+    let jsonString = localStorage.getItem(appGlobals.lsShoppingCart);
+
+    console.log('jsonString', jsonString);
+
+    if(jsonString){
+      let itemsInCart = JSON.parse(jsonString);
+
+      console.log(itemsInCart);
+      itemsInCart.forEach((item: any) => {
+        this.wines.push(item.wine);
+      });
 
 
+      console.log('wines', this.wines);
+    }
     // const wine1: Wine = {
     //   id: 1,
     //   name: "Wine" + 1,
