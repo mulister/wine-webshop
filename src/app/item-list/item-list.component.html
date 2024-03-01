@@ -30,7 +30,7 @@
             <div class="card wine-card">
                 <!-- Image Section -->
                 <div class="image-section">
-                    <img [src]="wine.image" (click)="openWhineDetailScreen(wine)" class="img-fluid rounded thumbnail-image">
+                    <img [src]="wine.imageUrl" (click)="openWhineDetailScreen(wine)" class="img-fluid rounded thumbnail-image">
                 </div>
 
                 <!-- Text Section -->
@@ -39,7 +39,6 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex flex-column mb-2">
                             <span>€{{wine.price}}</span>
-                            <!-- <small class="old-price text-right">$5.99</small> -->
                         </div>
                         <div class="color-select d-flex">
                             <p>{{wine.color}}/{{wine.type}}</p>

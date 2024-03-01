@@ -1,5 +1,5 @@
 export interface Wine {
-    id?: number;
+    id: number;
     name?: string;
     smallDescription?: string;
     description?: string;
@@ -7,6 +7,6 @@ export interface Wine {
     price?: number;
     color?: string;
     type?: string;
-    imageBlob?: Blob;
-    image?: string;
+    imageBlob?: File;
+    imageUrl?: string;
   }

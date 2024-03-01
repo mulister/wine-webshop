@@ -1,6 +1,7 @@
 using Data;
 using Data.Objects;
 using Data.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,9 +14,26 @@ namespace Webshop.Api.Controllers
     WebshopContext _webshopContext;
     private readonly IWinesService _winesService;
 
-    public WinesController(IWinesService winesService)
+    public WinesController(IWinesService winesService, WebshopContext context)
     {
       _winesService = winesService;
+      _webshopContext = context;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+      try
+      {
+        var wines = _webshopContext.Wines.ToList();
+
+        return Ok(wines);
+
+      }
+      catch (Exception ex)
+      {
+        return BadRequest("Something went wrong attempting to add the Wine");
+      }
     }
 
     [HttpPost]
@@ -23,6 +41,17 @@ namespace Webshop.Api.Controllers
     {
       try
       {
+        var wineImages = new List<string>
+        {
+            "https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0049.jpg",
+            "https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0050.jpg",
+            "https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0048.jpg",
+        };
+
+        Random random = new Random();
+        int randomIndex = random.Next(wineImages.Count);
+
+        wine.ImageUrl = wineImages[randomIndex];
         await _winesService.Create(wine);
 
         return Ok();

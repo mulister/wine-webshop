@@ -144,11 +144,10 @@ h3 {
     border-radius: 0 0 6px 6px;
     background-color: #fff;
 }
-
 .list-icons {
-    display: flex;
-    justify-content: space-around;
-    float: left;
+    /* display: flex; Remove this line */
+    /* justify-content: space-around; Remove this line */
+    padding: 0;
 }
 
 .selection-icon {
@@ -156,6 +155,7 @@ h3 {
     height: 55px;
     padding: 7px;
     float: left;
+    margin-right: 10px; /* Add margin for spacing between items */
 }
 
 .title {
@@ -183,7 +183,7 @@ h3 {
     }
 }
 
-.variant {
+/* .variant {
     overflow: auto;
 
     h3 {
@@ -208,7 +208,7 @@ h3 {
     li:not(:first-child) {
         margin-left: 0.1em;
     }
-}
+} */
 
 .description {
     clear: left;

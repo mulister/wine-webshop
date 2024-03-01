@@ -15,7 +15,7 @@ export class LoginComponent {
 
   onSubmit() {
     // Check credentials (replace with actual authentication logic)
-    if (this.username === 'yourUsername' && this.password === 'yourPassword') {
+    if (this.username === 'admin' && this.password === 'admin') {
       // Successful login, navigate to dashboard
       this.router.navigate(['/']);
     } else {

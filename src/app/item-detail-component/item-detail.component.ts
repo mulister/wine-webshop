@@ -2,6 +2,8 @@ import { Component, EventEmitter, Inject, Input, OnInit, Output, ViewEncapsulati
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Wine } from '../shared/wine.model';
 import { Router } from '@angular/router';
+import { ShoppingCartService } from '../services/shopping-cart-service';
+import { appGlobals } from 'src/assets/globals/app.globals';
 
 @Component({
   selector: 'app-item-detail',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ItemDetailComponent implements OnInit  {
   public selectedWine!: Wine;
-  constructor(private router: Router,
+  constructor(private router: Router, private cartService: ShoppingCartService,
     public dialogRef: MatDialogRef<ItemDetailComponent>,
     @Inject(MAT_DIALOG_DATA) private wine: Wine
   ) { 
@@ -19,6 +21,7 @@ export class ItemDetailComponent implements OnInit  {
 
   ngOnInit(): void {
     this.selectedWine = this.wine;
+    //this.resetCart();
   }
 
   closeModal() {
@@ -55,7 +58,37 @@ export class ItemDetailComponent implements OnInit  {
 
   addToCart() {
     // Assuming '/cart' is the route for the cart page
-    this.router.navigate(['/cart']);
-    this.dialogRef.close();
+    // this.cartService.addWineToCart(this.wine.id, this.counterValue).subscribe(result => {
+    //   console.log("Ok", result);
+    // })
+
+    let body = [];
+    let jsonString = localStorage.getItem(appGlobals.lsShoppingCart);
+    console.log(jsonString);
+
+    if (jsonString || jsonString === ''){
+      let object = JSON.parse(jsonString);
+
+      object.forEach((wine: Wine) => {
+        body.push(wine);
+      });
+      
+      body.push({ wine: this.selectedWine, counter: this.counterValue });
+      localStorage.setItem(appGlobals.lsShoppingCart, JSON.stringify(body));
+
+      //this.router.navigate(['/cart']);
+      this.dialogRef.close();
+    }else{
+      body.push({ wine: this.selectedWine, counter: this.counterValue });
+      localStorage.setItem(appGlobals.lsShoppingCart, JSON.stringify(body));
+
+      //this.router.navigate(['/cart']);
+      this.dialogRef.close();
+    }
+  }
+
+  resetCart() {
+    localStorage.removeItem(appGlobals.lsShoppingCart);
+    localStorage.clear();
   }
 }

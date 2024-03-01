@@ -4,10 +4,8 @@
             <div class="photo-container">
                 <div class="photo-main">
                     <div class="controls">
-                        <i class="material-icons">share</i>
-                        <i class="material-icons">favorite_border</i>
                     </div>
-                    <img [src]="selectedWine.image" class="img-main" alt="Wine Image">
+                    <img [src]="selectedWine.imageUrl" class="img-main" alt="Wine Image">
                 </div>
                 <!-- <div class="photo-album">
                     <ul class="list-icons">
@@ -23,34 +21,41 @@
             <div class="close-button" (click)="closeModal()"><button>X</button></div>
             <div class="title">
                 <h1>{{ selectedWine.name }}</h1>
-                <span>COD: 45999</span>
+                <span>{{ selectedWine.smallDescription }}</span>
             </div>
             <div class="price">
                 € <span>{{ selectedWine.price }}</span>
             </div>
             <div class="variant">
-                <h3>Awards</h3>
-                <ul class="list-icons">
-                    <li>X</li>
-                    <li class="selection-icon">Y</li>
-                    <li class="selection-icon">Z</li>
-                </ul>
+                <h3>
+                    <button class="btn text-white" type="button" data-bs-toggle="collapse" data-bs-target="#awardsCollapse" aria-expanded="false" aria-controls="awardsCollapse">
+                        Awards
+                    </button>
+                </h3>
+                <div class="collapse" id="awardsCollapse">
+                    <ul class="list-icons">
+                        <li class="selection-icon">Award 0</li>
+                        <li class="selection-icon">Award 1</li>
+                        <li class="selection-icon">Award 2</li>
+                    </ul>
+                </div>
             </div>
+            
             <div class="description">
-                <h3>DESCRIPTION</h3>
+                <h3>Description</h3>
                 <ul class="">
-                    <li>{{ selectedWine.description }}</li>
+                    <li> {{ selectedWine.description }}</li>
                 </ul>
             </div>
             <div>
                 
             </div>
             <div class="counter-container">
-                <button class="counter-btn" (click)="increment()">+</button>
-                <input class="counter-input" type="text" [(ngModel)]="counterValue" />
-                <button class="counter-btn" (click)="decrement()">-</button>
+                <!-- <button class="counter-btn" (click)="increment()">+</button> -->
+                <input class="counter-input" type="number" [(ngModel)]="counterValue" />
+                <!-- <button class="counter-btn" (click)="decrement()">-</button> -->
             </div>
-            <button class="buy-btn">ADD TO CART</button>
+            <button (click)="addToCart()" class="buy-btn">ADD TO CART</button>
         </div>
     </div>
 </div>
