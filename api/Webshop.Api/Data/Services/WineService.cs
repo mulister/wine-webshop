@@ -24,6 +24,8 @@ namespace Data.Services
         throw new ArgumentNullException("Wine name was not entered. It cannot be empty.");
       }
 
+      wine.CreatedAt = DateTime.Now;
+
       _webshopContext.Add(wine);
 
       await _webshopContext.SaveChangesAsync();
@@ -65,6 +67,16 @@ namespace Data.Services
       existingWine.Type = wine.Type;
 
       await _webshopContext.SaveChangesAsync();
+    }
+
+    public async Task<List<Wine>> GetWinesPaged(int pageIndex, int pageSize, string? color)
+    {
+      int itemsToSkip = pageIndex * pageSize;
+      var allWines = _webshopContext.Wines;
+
+      var pagedWines = allWines.Skip(itemsToSkip).Take(pageSize).ToList();
+
+      return pagedWines;
     }
   }
 }
