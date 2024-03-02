@@ -4,6 +4,9 @@ using Data.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Drawing;
+using Webshop.Api.Dtos;
 
 namespace Webshop.Api.Controllers
 {
@@ -78,5 +81,24 @@ namespace Webshop.Api.Controllers
         return BadRequest("Something went wrong attempting to add the Wine");
       }
     }
+
+
+    [HttpGet]
+    public async Task<IActionResult> GetPagedWines(PagedWineDTO dto)
+    {
+      try
+      {
+        var pagedWines = await _winesService.GetPagedWines(dto.PageIndex, dto.PageSize, dto.ColorFilter);
+
+        return Ok(pagedWines);
+
+      }
+      catch (Exception ex)
+      {
+        return BadRequest("Something went wrong attempting to add the Wine");
+      }
+    }
+
   }
+}
 }

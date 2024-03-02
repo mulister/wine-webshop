@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Data.Services
 {
@@ -65,14 +66,15 @@ namespace Data.Services
       existingWine.Description = wine.Description;
       existingWine.Color = wine.Color;
       existingWine.Type = wine.Type;
+      existingWine.Stock = wine.Stock;
 
       await _webshopContext.SaveChangesAsync();
     }
 
-    public async Task<List<Wine>> GetWinesPaged(int pageIndex, int pageSize, string? color)
+    public async Task<List<Wine>> GetPagedWines(int pageIndex, int pageSize, string? color)
     {
       int itemsToSkip = pageIndex * pageSize;
-      var allWines = _webshopContext.Wines;
+      var allWines = await _webshopContext.Wines.ToListAsync();
 
       var pagedWines = allWines.Skip(itemsToSkip).Take(pageSize).ToList();
 

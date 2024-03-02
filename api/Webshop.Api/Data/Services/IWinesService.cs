@@ -13,5 +13,6 @@ namespace Data.Services
     Task<int> Create(Wine wine);
     Task Delete(int id);
     Task Edit(Wine wine);
+    Task<List<Wine>> GetPagedWines(int pageIndex, int pageSize, string? color);
   }
 }

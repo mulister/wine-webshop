@@ -20,6 +20,7 @@ export class ImgGalleryComponent implements OnInit {
   interval: any;
 
   ngOnInit(): void {
+    console.log("Img galelry opene")
     this.startAutoCycle();
     this.announcementService.getAnnouncements().subscribe(result =>{
       result.forEach(item => {
