@@ -84,6 +84,7 @@ namespace Webshop.Api.Controllers
 
 
     [HttpGet]
+    [Route("Paged")]
     public async Task<IActionResult> GetPagedWines(PagedWineDTO dto)
     {
       try

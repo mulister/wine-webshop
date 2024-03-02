@@ -17,6 +17,17 @@ export class WineService {
     return this.httpClient.get<Wine[]>(this.apiUrl);
   }
 
+  getPagedWines(pageSize: number, pageIndex: number, colorFilter: string): Observable<Wine[]> {
+    const dto = {
+      pageSize: pageSize,
+      pageIndex: pageIndex,
+      colorFilter: colorFilter
+    };
+
+    const urlWithPaged = `${this.apiUrl}/paged`;
+    return this.httpClient.get<Wine[]>(urlWithPaged, { params: dto });
+  }
+
   // Example method to make a POST request
   createWine(wineData: Wine): Observable<any> {
     const headers = new HttpHeaders({

@@ -13,15 +13,17 @@ export class StockListComponent implements OnInit {
   pageSize: number = 12;
   colorFilter: string = "";
 
-  constructor(wineService: WineService) {
+  constructor(private wineService: WineService) {
 
   }
 
   ngOnInit(): void {
-
+    this.fetchWines();
   }
 
   fetchWines(): void {
-    wineService.
-}
+    this.wineService.getWines().subscribe(result =>
+      this.Wines = result
+    )
+  }
 }
