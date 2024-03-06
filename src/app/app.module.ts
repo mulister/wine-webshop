@@ -21,6 +21,8 @@ import { AnnouncementCreateComponent } from './announcement-create/announcement-
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { LoginComponent } from './login-page/login-page.component';
+import { StockListComponent } from './stock-list/stock-list.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { LoginComponent } from './login-page/login-page.component';
     AnnouncementCreateComponent,
     ShoppingCartComponent,
     AboutUsComponent,
-    LoginComponent
+    LoginComponent,
+    StockListComponent,
+    OrderConfirmationComponent
   ],
   imports: [
     BrowserModule,

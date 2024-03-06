@@ -8,69 +8,62 @@ import { appGlobals } from 'src/assets/globals/app.globals';
   templateUrl: './shopping-cart.component.html',
   styleUrls: ['./shopping-cart.component.css']
 })
-export class ShoppingCartComponent implements OnInit{
-  constructor(private shoppingCartService: ShoppingCartService){
+export class ShoppingCartComponent implements OnInit {
+  constructor(private shoppingCartService: ShoppingCartService) {
 
   }
 
- wines: Wine[] = [];
- totalPrice : number = 0;
+  wines: Wine[] = [];
+  uniqueWines: Wine[] = [];
+  totalPrice: number = 0;
 
   ngOnInit(): void {
-    this.shoppingCartService.getCart().subscribe(result => {
-      result.cartItems?.forEach(wine => {
-        this.wines.push(wine);
-        console.log("wine", wine);
-        if(wine.price){
-          this.totalPrice += wine.price;
-        }
-      })
-    })
+    // this.shoppingCartService.getCart().subscribe(result => {
+    //   result.cartItems?.forEach(wine => {
+    //     this.wines.push(wine);
+    //     console.log("wine", wine);
+    //     if (wine.price) {
+    //       this.totalPrice += wine.price;
+    //     }
+    //   })
+    // })
     // this.shoppingCartService.getCart().subscribe(result => {
     //   result.cartItems?.forEach(wine => {
     //     this.wines.push(wine);
     //   })
     // })
-    
+
     let jsonString = localStorage.getItem(appGlobals.lsShoppingCart);
 
     console.log('jsonString', jsonString);
 
-    if(jsonString){
+    if (jsonString) {
       let itemsInCart = JSON.parse(jsonString);
-
       console.log(itemsInCart);
       itemsInCart.forEach((item: any) => {
+        // if(!this.wines.some(wine => wine.id === item.id)){
         this.wines.push(item.wine);
-      });
+        // }
 
+        this.uniqueWines = this.wines.filter((wine, index, self) =>
+          index === self.findIndex((w) => w.id === wine.id)
+        );
+      });
 
       console.log('wines', this.wines);
     }
-    // const wine1: Wine = {
-    //   id: 1,
-    //   name: "Wine" + 1,
-    //   smallDescription: '*dry *red *cheap',
-    //   description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", // Add description and other properties
-    //   price: 19.99,
-    //   imageUrl: 'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0050.jpg',
-    //   capacity: '500cl',
-    //   color: 'White',
-    //   type: 'Dry'
-    // }; 
-    // const wine2: Wine = {
-    //   id: 2,
-    //   name: "Wine" + 2,
-    //   smallDescription: '*dry *red *cheap',
-    //   description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum", // Add description and other properties
-    //   price: 19.99,
-    //   imageUrl: 'https://qualitywines.blob.core.windows.net/quality-wines-images/IMG-20231106-WA0047.jpg',
-    //   capacity: '500cl',
-    //   color: 'Red',
-    //   type: 'Wet'
-    // };
+  }
 
-    // this.wines.push(wine1);
-    // this.wines.push(wine2);
-   }
+  getWinesCount(selectedWine: Wine){
+    console.log("Selected Wine", selectedWine);
+    const wines = this.wines.filter(wine => wine.name === selectedWine.name);
+    console.log("Filtered wines", wines);
+  
+    return wines.length;
+  }
+
+  resetCart() {
+    localStorage.removeItem(appGlobals.lsShoppingCart);
+    localStorage.clear();
+  }
 }

@@ -68,7 +68,7 @@ export class ItemDetailComponent implements OnInit  {
 
     if (jsonString || jsonString === ''){
       let object = JSON.parse(jsonString);
-
+      
       object.forEach((wine: Wine) => {
         body.push(wine);
       });

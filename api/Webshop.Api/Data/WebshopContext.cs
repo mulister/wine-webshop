@@ -13,6 +13,7 @@ namespace Data
     public DbSet<WineType> WineTypes { get; set; }
     public DbSet<Award> Awards { get; set; }
     public DbSet<Announcement> Announcements { get; set; }
+    public DbSet<Order> Orders { get; set; }
     public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 
 
