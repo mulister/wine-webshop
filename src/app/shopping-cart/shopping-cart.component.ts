@@ -5,6 +5,7 @@ import { appGlobals } from 'src/assets/globals/app.globals';
 import { OrderService } from '../services/order-service';
 import { ShoppingCart } from '../shared/shopping-cart.model';
 import { Order, PaymentDetails } from '../shared/order.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -12,7 +13,7 @@ import { Order, PaymentDetails } from '../shared/order.model';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
-  constructor(private shoppingCartService: ShoppingCartService, private ordersService: OrderService) {
+  constructor(private router: Router, private shoppingCartService: ShoppingCartService, private ordersService: OrderService) {
 
   }
 
@@ -106,6 +107,8 @@ export class ShoppingCartComponent implements OnInit {
 
     console.log("Order created");
     this.ordersService.createOrder(order).subscribe(result => {
+      console.log(result);
+      this.router.navigate([`/order-confirmation/${result.id}`]);      
       console.log("Order created succesfully")
     })
   }

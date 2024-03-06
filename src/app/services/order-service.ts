@@ -19,6 +19,10 @@ export class OrderService {
     return this.httpClient.get<Order>(this.apiUrl);
   }
 
+  getOrder(id: number): Observable<Order> {
+    return this.httpClient.get<Order>(this.apiUrl + "/" + id);
+  }
+
   createOrder(order: Order): Observable<Order> {
     const headers = new HttpHeaders({
         'Content-Type': 'application/json',

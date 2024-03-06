@@ -9,6 +9,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { LoginComponent } from './login-page/login-page.component';
 import { StockListComponent } from './stock-list/stock-list.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent  },
@@ -19,6 +20,9 @@ const routes: Routes = [
   { path: 'cart', component: ShoppingCartComponent  },
   { path: 'about', component: AboutUsComponent  },
   { path: 'stock', component: StockListComponent  },
+  { path: 'order-confirmation/:id', component: OrderConfirmationComponent  },
+
+
 
 
 

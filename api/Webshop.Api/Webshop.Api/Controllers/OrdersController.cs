@@ -2,6 +2,7 @@ using Data;
 using Data.Objects;
 using Data.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Webshop.Api.Controllers
 {
@@ -24,6 +25,14 @@ namespace Webshop.Api.Controllers
     {
       return Ok(_webshopContext.Orders.ToList());
     }
+
+    [HttpGet]  
+    [Route("{id}")]
+    public async Task<IActionResult> GetOrder(int id)
+    {
+      return Ok(_webshopContext.Orders.Include(order => order.PaymentDetails).Include(o => o.ShoppingCart).ThenInclude(sp => sp.CartItems).FirstOrDefault(order => order.Id == id));
+    }
+
 
     [HttpPost]
     public async Task<IActionResult> CreateOrder([FromBody] Order orderDto)
@@ -58,7 +67,7 @@ namespace Webshop.Api.Controllers
         newOrder.ShoppingCart.CartItems = new List<Wine>();
         foreach(var wine in orderDto.ShoppingCart.CartItems)
         {
-          if (newOrder.ShoppingCart.CartItems.Contains(wine))
+          if (!newOrder.ShoppingCart.CartItems.Contains(wine))
           {
             newOrder.ShoppingCart.CartItems.Add(wine);
           }
@@ -72,7 +81,7 @@ namespace Webshop.Api.Controllers
         //}
         await _webshopContext.SaveChangesAsync();
 
-        return Ok(orderDto);
+        return Ok(newOrder);
       }
       catch (Exception ex)
       {
