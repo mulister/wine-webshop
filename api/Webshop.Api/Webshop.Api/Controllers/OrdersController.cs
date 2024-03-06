@@ -46,11 +46,30 @@ namespace Webshop.Api.Controllers
           return BadRequest("No cart items");
         }
 
-        _webshopContext.Orders.Add(orderDto);
-        foreach (Wine wine in orderDto.ShoppingCart.CartItems)
+
+        Order newOrder = new Order
         {
-          wine.Stock--;
+          Email = orderDto.Email,
+          PaymentDetails = orderDto.PaymentDetails,
+          ShoppingCart = orderDto.ShoppingCart,
+          TotalPrice = orderDto.TotalPrice
+        };
+
+        newOrder.ShoppingCart.CartItems = new List<Wine>();
+        foreach(var wine in orderDto.ShoppingCart.CartItems)
+        {
+          if (newOrder.ShoppingCart.CartItems.Contains(wine))
+          {
+            newOrder.ShoppingCart.CartItems.Add(wine);
+          }
         }
+
+        _webshopContext.Orders.Add(newOrder);
+
+        //foreach (Wine wine in orderDto.ShoppingCart.CartItems)
+        //{
+        //  wine.Stock--;
+        //}
         await _webshopContext.SaveChangesAsync();
 
         return Ok(orderDto);

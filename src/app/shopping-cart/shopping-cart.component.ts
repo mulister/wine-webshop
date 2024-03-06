@@ -92,7 +92,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   public checkOut(){
-
+    console.log("Checkout hit");
     const order: Order = new Order();
     order.paymentDetails = new PaymentDetails();
     order.email = this.email;
@@ -104,6 +104,7 @@ export class ShoppingCartComponent implements OnInit {
     order.paymentDetails.userName = this.userName;
     order.shoppingCart = this.shoppingCart;
 
+    console.log("Order created");
     this.ordersService.createOrder(order).subscribe(result => {
       console.log("Order created succesfully")
     })
