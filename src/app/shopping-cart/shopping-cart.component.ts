@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Wine } from '../shared/wine.model';
 import { ShoppingCartService } from '../services/shopping-cart-service';
 import { appGlobals } from 'src/assets/globals/app.globals';
+import { OrderService } from '../services/order-service';
+import { ShoppingCart } from '../shared/shopping-cart.model';
+import { Order, PaymentDetails } from '../shared/order.model';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -9,13 +12,36 @@ import { appGlobals } from 'src/assets/globals/app.globals';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
-  constructor(private shoppingCartService: ShoppingCartService) {
+  constructor(private shoppingCartService: ShoppingCartService, private ordersService: OrderService) {
 
   }
 
   wines: Wine[] = [];
   uniqueWines: Wine[] = [];
   totalPrice: number = 0;
+
+  userName: string = "";
+  email: string = "";
+  cardNumber: string = "";
+  cardExpiration: string = "";
+  cvv: string = "";
+
+  order: Order = {
+    id: 0, // Initialize with default values or fetch from a service
+    shoppingCart: new ShoppingCart(),
+    email: '',
+    totalPrice: 0,
+    paymentDetails: new PaymentDetails()
+    //  {
+    //   id: 0,
+    //   userName: '',
+    //   email: '',
+    //   cardExpiration: '',
+    //   cardNumber: '',
+    //   cvv: ''
+    // }
+  };  
+  shoppingCart: ShoppingCart = new ShoppingCart();
 
   ngOnInit(): void {
     // this.shoppingCartService.getCart().subscribe(result => {
@@ -44,6 +70,8 @@ export class ShoppingCartComponent implements OnInit {
         // if(!this.wines.some(wine => wine.id === item.id)){
         this.wines.push(item.wine);
         this.totalPrice += item.wine.price;
+        this.shoppingCart.cartItems = this.wines;
+        this.shoppingCart.totalPrice = this.totalPrice;
         // }
 
         this.uniqueWines = this.wines.filter((wine, index, self) =>
@@ -61,6 +89,24 @@ export class ShoppingCartComponent implements OnInit {
     console.log("Filtered wines", wines);
   
     return wines.length;
+  }
+
+  public checkOut(){
+
+    const order: Order = new Order();
+    order.paymentDetails = new PaymentDetails();
+    order.email = this.email;
+    order.totalPrice = this.totalPrice;
+    order.paymentDetails.cardExpiration = this.cardExpiration;
+    order.paymentDetails.cardNumber = this.cardNumber;
+    order.paymentDetails.cvv = this.cvv;
+    order.paymentDetails.email = this.email;
+    order.paymentDetails.userName = this.userName;
+    order.shoppingCart = this.shoppingCart;
+
+    this.ordersService.createOrder(order).subscribe(result => {
+      console.log("Order created succesfully")
+    })
   }
 
   resetCart() {

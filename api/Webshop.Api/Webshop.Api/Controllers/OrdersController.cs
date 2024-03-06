@@ -17,10 +17,7 @@ namespace Webshop.Api.Controllers
       _winesService = winesService;
       _webshopContext = context;
     }
-    public IActionResult Index()
-    {
-      return Ok();
-    }
+
 
     [HttpGet]
     public async Task<IActionResult> GetOrders()
@@ -29,7 +26,7 @@ namespace Webshop.Api.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateOrder(Order orderDto)
+    public async Task<IActionResult> CreateOrder([FromBody] Order orderDto)
     {
 
       try
@@ -50,25 +47,18 @@ namespace Webshop.Api.Controllers
         }
 
         _webshopContext.Orders.Add(orderDto);
-        UpdateWinesStock(orderDto.ShoppingCart.CartItems);
+        foreach (Wine wine in orderDto.ShoppingCart.CartItems)
+        {
+          wine.Stock--;
+        }
         await _webshopContext.SaveChangesAsync();
 
         return Ok(orderDto);
       }
-      catch(Exception ex)
+      catch (Exception ex)
       {
         return BadRequest($"Something went wrong, {ex.Message}");
       }
-    }
-
-    public void UpdateWinesStock(List<Wine> wines)
-    {
-      foreach(Wine wine in wines)
-      {
-        wine.Stock = wine.Stock--;
-      }
-
-      _webshopContext.UpdateRange(wines);
     }
   }
 }
