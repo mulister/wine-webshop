@@ -1,6 +1,6 @@
 import { ShoppingCart } from "./shopping-cart.model";
 
-class PaymentDetails {
+export class PaymentDetails {
     Id: number;
     UserName: string;
     Email: string;
@@ -25,7 +25,7 @@ class PaymentDetails {
     }
   }
   
-  class Order {
+ export class Order {
     Id: number;
     ShoppingCart: ShoppingCart; // You need to define the ShoppingCart class or type
     Email: string;

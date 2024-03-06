@@ -22,31 +22,53 @@ namespace Webshop.Api.Controllers
       return Ok();
     }
 
+    [HttpGet]
+    public async Task<IActionResult> GetOrders()
+    {
+      return Ok(_webshopContext.Orders.ToList());
+    }
+
     [HttpPost]
     public async Task<IActionResult> CreateOrder(Order orderDto)
     {
 
-      if(orderDto.PaymentDetails is null)
+      try
       {
-        return BadRequest("Payment details are required");
+        if (orderDto.PaymentDetails is null)
+        {
+          return BadRequest("Payment details are required");
+        }
+
+        if (orderDto.ShoppingCart is null)
+        {
+          return BadRequest("Shopping cart is required");
+        }
+
+        if (!orderDto.ShoppingCart.CartItems.Any())
+        {
+          return BadRequest("No cart items");
+        }
+
+        _webshopContext.Orders.Add(orderDto);
+        UpdateWinesStock(orderDto.ShoppingCart.CartItems);
+        await _webshopContext.SaveChangesAsync();
+
+        return Ok(orderDto);
+      }
+      catch(Exception ex)
+      {
+        return BadRequest($"Something went wrong, {ex.Message}");
+      }
+    }
+
+    public void UpdateWinesStock(List<Wine> wines)
+    {
+      foreach(Wine wine in wines)
+      {
+        wine.Stock = wine.Stock--;
       }
 
-      if(orderDto.ShoppingCart is null)
-      {
-        return BadRequest("Shopping cart is required");
-      }
-
-      if(!orderDto.ShoppingCart.CartItems.Any())
-      {
-        return BadRequest("No cart items");
-      }
-
-      _webshopContext.Orders.Add(orderDto);
-      await _webshopContext.SaveChangesAsync();
-
-      return Ok(orderDto);
-
-      return Ok();
+      _webshopContext.UpdateRange(wines);
     }
   }
 }
