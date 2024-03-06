@@ -18,14 +18,17 @@
             </div>
         </div>
         <div>
-            <div class="close-button" (click)="closeModal()"><button>X</button></div>
-            <div class="title">
-                <h1>{{ selectedWine.name }}</h1>
-                <span>{{ selectedWine.smallDescription }}</span>
+            <div class="close-button" (click)="closeModal()">
+                <button>X</button>
             </div>
             <div class="price">
                 € <span>{{ selectedWine.price }}</span>
             </div>
+            <div class="title">
+                <h1>{{ selectedWine.name }}</h1>
+                <span>{{ selectedWine.smallDescription }}</span>
+            </div>
+            
             <div class="variant">
                 <h3>
                     <button class="btn text-white" type="button" data-bs-toggle="collapse" data-bs-target="#awardsCollapse" aria-expanded="false" aria-controls="awardsCollapse">

@@ -135,9 +135,10 @@ h3 {
     filter: saturate(150%) contrast(120%) hue-rotate(10deg) drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
     overflow: visible;
     z-index: 1;
+    left: 3.75em;
     filter: drop-shadow(1px 1px 3px #a6a6a6);
     object-fit: cover; /* Scale the image to cover the container */
-  }
+}
 
 .photo-album {
     padding: 0.7em 1em;
@@ -161,7 +162,7 @@ h3 {
 .title {
     h1 {
         margin-bottom: 0.1em;
-        color: #4c4c4c;
+        color: #ffffff;
         font-size: 1.5em;
         font-weight: 900;
     }
@@ -173,9 +174,11 @@ h3 {
 }
 
 .price {
-    margin: 1.5em 0;
+    margin: 1.5em 1.5em;
     color: #ff3f40;
     font-size: 1.2em;
+
+    float:right;
 
     span {
         padding-left: 0.15em;
@@ -232,6 +235,7 @@ h3 {
 
 .buy-btn {
     padding: 1.5em 3.1em;
+    padding-right: 2em;
     border: none;
     border-radius: 7px;
     font-size: 0.8em;

@@ -12,6 +12,9 @@ import { appGlobals } from 'src/assets/globals/app.globals';
 })
 export class ItemDetailComponent implements OnInit  {
   public selectedWine!: Wine;
+  @Input() counterValue: number = 1;
+  @Output() counterChange = new EventEmitter<number>();
+
   constructor(private router: Router, private cartService: ShoppingCartService,
     public dialogRef: MatDialogRef<ItemDetailComponent>,
     @Inject(MAT_DIALOG_DATA) private wine: Wine
@@ -21,15 +24,13 @@ export class ItemDetailComponent implements OnInit  {
 
   ngOnInit(): void {
     this.selectedWine = this.wine;
+    console.log('wine', this.selectedWine);
     //this.resetCart();
   }
 
   closeModal() {
     this.dialogRef.close();
   }
-  
-  @Input() counterValue: number = 1;
-  @Output() counterChange = new EventEmitter<number>();
 
   increment() {
     this.counterValue++;
