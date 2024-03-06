@@ -43,6 +43,7 @@ export class ShoppingCartComponent implements OnInit {
       itemsInCart.forEach((item: any) => {
         // if(!this.wines.some(wine => wine.id === item.id)){
         this.wines.push(item.wine);
+        this.totalPrice += item.wine.price;
         // }
 
         this.uniqueWines = this.wines.filter((wine, index, self) =>

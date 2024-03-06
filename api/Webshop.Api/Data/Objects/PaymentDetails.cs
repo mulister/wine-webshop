@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Data.Objects
 {
-  public class Order
+  public class PaymentDetails
   {
     public int Id { get; set; }
-    public ShoppingCart ShoppingCart { get; set; }
+    public string UserName { get; set; }
     public string Email { get; set; }
-    public decimal TotalPrice { get; set; }
-    public PaymentDetails PaymentDetails { get; set; }
+    public string CardNumber { get; set; }
+    public string CardExpiration { get; set; }
+    public string Cvv { get; set; }
   }
 }
